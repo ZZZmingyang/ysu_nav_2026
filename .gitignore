@@ -11,6 +11,9 @@
 __pycache__/
 *.pyc
 
+# Generated local DDS profiles
+/.dds-env-*
+
 # Local point-cloud maps
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/simulation/rmuc_2024.pcd
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/simulation/rmuc_2025.pcd
