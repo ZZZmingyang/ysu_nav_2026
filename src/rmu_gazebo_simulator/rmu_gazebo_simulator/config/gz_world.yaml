@@ -1,4 +1,4 @@
-world: "rmuc_2025"
+world: "rmuc_2027"
 
 robots:
 
@@ -69,3 +69,20 @@ robots:
       y_pose: "9.5"
       z_pose: "0.7"
       yaw: "0.0"
+
+  rmuc_2027:
+    - name: "red_standard_robot1"
+      color: "red"
+      x_pose: "-11.0"
+      y_pose: "3.0"
+      z_pose: "0.3314"
+      yaw: "0.0"
+
+  
+  rmul_2027:
+    - name: "red_standard_robot1"
+      color: "red"
+      x_pose: "-8.0"
+      y_pose: "3.0"
+      z_pose: "0.645503"
+      yaw: "-1.570796"
