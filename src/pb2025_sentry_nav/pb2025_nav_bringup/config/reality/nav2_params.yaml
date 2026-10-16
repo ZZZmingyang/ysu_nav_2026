@@ -576,6 +576,7 @@ velocity_smoother:
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
 
+# 我们用的自己的teleop_twist_joy_node，不使用北极熊的节点
 pb_teleop_twist_joy_node:
   ros__parameters:
     use_sim_time: False

@@ -58,93 +58,93 @@ class Joy_Node: public rclcpp::Node
         wz < 0  → 顺时针旋转
         */
 
-          // 使用了 axes[6]，所以至少需要七根轴
-      if (msg.axes.size() < 7) 
-      {
-          stop_input();
-          received_joy_ = false;
-          return;
-      }
+        // 使用了 axes[6]，所以至少需要七根轴
+        if (msg.axes.size() < 7) 
+        {
+            stop_input();
+            received_joy_ = false;
+            return;
+        }
 
-      // 拒绝无效数值，避免积分结果变成 NaN
-      for (const auto index : {0, 1, 3, 4, 6}) 
-      {
-          if (!std::isfinite(msg.axes[index])) {
-              stop_input();
-              received_joy_ = false;
-              return;
-          }
-      }
-
-
-      cmd_vel_field.vx = msg.axes[1]; //左摇杆朝前是1.0
-      cmd_vel_field.vy = msg.axes[0]; //左摇杆朝左是1.0
-      cmd_vel_field.wz = msg.axes[6] * M_PI; //十字键朝左是1.0，旋转角度是1.0 * M_PI
-      cmd_gimbal_joint_field.yaw_vel = msg.axes[3] * 2.5; //右摇杆朝左是1.0 * 2.5
-      cmd_gimbal_joint_field.pitch_vel = msg.axes[4] * 1.0; //右摇杆朝前是1.0 * 1.0
+        // 拒绝无效数值，避免积分结果变成 NaN
+        for (const auto index : {0, 1, 3, 4, 6}) 
+        {
+            if (!std::isfinite(msg.axes[index])) {
+                stop_input();
+                received_joy_ = false;
+                return;
+            }
+        }
 
 
-      last_joy_time_ = std::chrono::steady_clock::now();
-      received_joy_ = true;
+        cmd_vel_field.vx = msg.axes[1]; //左摇杆朝前是1.0
+        cmd_vel_field.vy = msg.axes[0]; //左摇杆朝左是1.0
+        cmd_vel_field.wz = msg.axes[6] * M_PI; //十字键朝左是1.0，旋转角度是1.0 * M_PI
+        cmd_gimbal_joint_field.yaw_vel = msg.axes[3] * 2.5; //右摇杆朝左是1.0 * 2.5
+        cmd_gimbal_joint_field.pitch_vel = msg.axes[4] * 1.0; //右摇杆朝前是1.0 * 1.0
+
+
+        last_joy_time_ = std::chrono::steady_clock::now();
+        received_joy_ = true;
     }
 
     void timer1_callback()
     {
-      auto now = this->now();
+        auto now = this->now();
 
-      fp32 dt = (now - last_update_).seconds();
-      last_update_ = now;
+        fp32 dt = (now - last_update_).seconds();
+        last_update_ = now;
 
-      // 检查输入是否断流：这里使用真实经过的时间
-      const double input_age =
-          std::chrono::duration<double>(
-              std::chrono::steady_clock::now() - last_joy_time_
-          ).count();
+        // 检查输入是否断流：这里使用真实经过的时间
+        const double input_age =
+            std::chrono::duration<double>(
+                std::chrono::steady_clock::now() - last_joy_time_
+            ).count();
 
-      if (!received_joy_ || input_age > 0.5) 
-      {
-        stop_input();
-      }
+        if (!received_joy_ || input_age > 0.5) 
+        {
+            stop_input();
+        }
 
-      // 暂停时 dt 为零；时间回跳或异常跨越时跳过这次积分
-      if (dt > 0.0 && dt <= 0.1) 
-      {
-          cmd_gimbal_joint_field.yaw +=
-              cmd_gimbal_joint_field.yaw_vel * dt;
+        // 暂停时 dt 为零；时间回跳或异常跨越时跳过这次积分
+        if (dt > 0.0 && dt <= 0.1) 
+        {
+            cmd_gimbal_joint_field.yaw +=
+                cmd_gimbal_joint_field.yaw_vel * dt;
 
-          cmd_gimbal_joint_field.pitch +=
-              cmd_gimbal_joint_field.pitch_vel * dt;
-      }
+            cmd_gimbal_joint_field.pitch +=
+                cmd_gimbal_joint_field.pitch_vel * dt;
+        }
 
-      cmd_gimbal_joint_field.pitch = std::clamp(
-          cmd_gimbal_joint_field.pitch,
-          PITCH_MIN,
-          PITCH_MAX
-      );
+        cmd_gimbal_joint_field.pitch = std::clamp(
+            cmd_gimbal_joint_field.pitch,
+            PITCH_MIN,
+            PITCH_MAX
+        );
 
-      auto cmd_vel_msg = geometry_msgs::msg::Twist();
-      auto joint_state_msg = sensor_msgs::msg::JointState();
+        auto cmd_vel_msg = geometry_msgs::msg::Twist();
+        auto joint_state_msg = sensor_msgs::msg::JointState();
 
-      cmd_vel_msg.linear.x = cmd_vel_field.vx;
-      cmd_vel_msg.linear.y = cmd_vel_field.vy;
-      cmd_vel_msg.linear.z = 0.0f;
+        cmd_vel_msg.linear.x = cmd_vel_field.vx;
+        cmd_vel_msg.linear.y = cmd_vel_field.vy;
+        cmd_vel_msg.linear.z = 0.0f;
 
-      cmd_vel_msg.angular.x = 0.0f;
-      cmd_vel_msg.angular.y = 0.0f;
-      cmd_vel_msg.angular.z = cmd_vel_field.wz;
+        cmd_vel_msg.angular.x = 0.0f;
+        cmd_vel_msg.angular.y = 0.0f;
+        cmd_vel_msg.angular.z = cmd_vel_field.wz;
 
-      joint_state_msg.header.stamp = now;
-      joint_state_msg.header.frame_id = "gimbal_pitch_odom_joint"; //貌似没啥用
+        joint_state_msg.header.stamp = now;
+        joint_state_msg.header.frame_id = "gimbal_pitch_odom_joint"; //貌似没啥用
 
-      joint_state_msg.name.push_back("gimbal_pitch_joint");
-      joint_state_msg.name.push_back("gimbal_yaw_joint");
+        joint_state_msg.name.push_back("gimbal_pitch_joint");
+        joint_state_msg.name.push_back("gimbal_yaw_joint");
 
-      joint_state_msg.position.push_back(cmd_gimbal_joint_field.pitch);
-      joint_state_msg.position.push_back(cmd_gimbal_joint_field.yaw);
+        joint_state_msg.position.push_back(cmd_gimbal_joint_field.pitch);
+        joint_state_msg.position.push_back(cmd_gimbal_joint_field.yaw);
 
-      joint_state_pub_->publish(joint_state_msg);
+        joint_state_pub_->publish(joint_state_msg);
 
-      cmd_vel_pub_->publish(cmd_vel_msg);
+        cmd_vel_pub_->publish(cmd_vel_msg);
     }
 
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
