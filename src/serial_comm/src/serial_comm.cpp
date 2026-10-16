@@ -1,6 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "serial_transport/serial_transport.hpp"
 #include <rclcpp/publisher.hpp>
+#include <rclcpp/subscription.hpp>
 #include <sensor_msgs/msg/detail/imu__struct.hpp>
 #include <sensor_msgs/msg/detail/joint_state__struct.hpp>
 #include <wire_protocol/protocol.hpp>
@@ -54,6 +55,7 @@ class Serial_Node: public rclcpp::Node
 
       // 在串口开启前在后都可以
       cmd_vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>("cmd_vel", 10, std::bind(&Serial_Node::cmd_vel_sub_callback,this,std::placeholders::_1));
+      joint_state_sub_ = this->create_subscription<sensor_msgs::msg::JointState>("cmd_gimbal_joint", 10, std::bind(&Serial_Node::joint_state_sub_callback,this,std::placeholders::_1));
 
       // 创建两个定时器模拟两个 topic（必须在串口开启后，尽量）
       //模拟/cmd_vel这种高频消息
@@ -64,15 +66,6 @@ class Serial_Node: public rclcpp::Node
     }
 
   private:
-    //
-    void cmd_vel_sub_callback(const geometry_msgs::msg::Twist &msg)
-    {
-      // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
-      cmd_vel_field.vx = msg.linear.x;
-      cmd_vel_field.vy = msg.linear.y;
-      cmd_vel_field.wz = msg.angular.z; //含自旋的角速度wz_spin了，再加上wz_nav2,这里的是wz_final
-    }
-
     void handle_joint_state(fp32 abs_roll,fp32 abs_pitch,fp32 abs_yaw,fp32 rel_pitch,fp32 rel_yaw)
     {
       //先搞时间戳
@@ -118,16 +111,36 @@ class Serial_Node: public rclcpp::Node
       RCLCPP_DEBUG(this->get_logger(),"[RX imu] roll=%.3f pitch=%.3f yaw=%.3f",abs_roll,abs_pitch,abs_yaw);
     }
 
-
     void serial_receive_callback(std::span<const uint8_t> msg)
     {
       //解包
       protocol_.feed(msg);
     }
 
+    void cmd_vel_sub_callback(const geometry_msgs::msg::Twist &msg)
+    {
+      // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
+      cmd_vel_field.vx = msg.linear.x;
+      cmd_vel_field.vy = msg.linear.y;
+      cmd_vel_field.wz = msg.angular.z; //含自旋的角速度wz_spin了，再加上wz_nav2,这里的是wz_final
+    }
+
+    void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
+    {
+      // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
+      cmd_gimbal_joint_field.rel_pitch = msg.position[0];
+      cmd_gimbal_joint_field.rel_yaw = msg.position[1];
+    }
+
     void timer1_callback()
     {
-      auto frame = protocol_.pack(0x01, cmd_vel_field.vx,cmd_vel_field.vy,cmd_vel_field.wz);
+      auto frame = protocol_.pack(
+        0x01, 
+        cmd_vel_field.vx,
+        cmd_vel_field.vy,
+        cmd_vel_field.wz,
+        cmd_gimbal_joint_field.rel_pitch,
+        cmd_gimbal_joint_field.rel_yaw);
                 
       //异步发送数据
       serial_driver_.async_write(frame);
@@ -159,6 +172,7 @@ class Serial_Node: public rclcpp::Node
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_sub_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_pub_;
     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr imu_pub_;
+    rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_state_sub_;
 
     //注意，protocol_一定要比serial_driver_早。
     // protocol_ 先构造、后析构；串口析构时先 stop() 并等待接收线程退出。
@@ -175,6 +189,13 @@ class Serial_Node: public rclcpp::Node
       fp32 vy;
       fp32 wz;
     }cmd_vel_field{0.0,0.0,0.0};
+
+    //云台数据
+    struct
+    {
+      fp32 rel_pitch{0.0f};
+      fp32 rel_yaw{0.0f};
+    } cmd_gimbal_joint_field;
 
     //模拟数据
     int32_t mode_{0};
