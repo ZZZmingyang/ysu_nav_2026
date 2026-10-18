@@ -44,6 +44,7 @@ def generate_launch_description():
     use_respawn = LaunchConfiguration("use_respawn")
     rviz_config_file = LaunchConfiguration("rviz_config_file")
     use_rviz = LaunchConfiguration("use_rviz")
+    use_joy = LaunchConfiguration("use_joy")
 
     configured_params = ParameterFile(
         RewrittenYaml(
@@ -136,6 +137,12 @@ def generate_launch_description():
         "use_rviz", default_value="True", description="Whether to start RVIZ"
     )
 
+    declare_use_joy_cmd = DeclareLaunchArgument(
+        "use_joy",
+        default_value="False",
+        description="Whether to start joystick teleoperation",
+    )
+
     start_velodyne_convert_tool = Node(
         package="ign_sim_pointcloud_tool",
         executable="ign_sim_pointcloud_tool_node",
@@ -172,6 +179,7 @@ def generate_launch_description():
 
     joy_teleop_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(launch_dir, "joy_teleop_launch.py")),
+        condition=IfCondition(use_joy),
         launch_arguments={
             "namespace": namespace,
             "use_sim_time": use_sim_time,
@@ -193,6 +201,7 @@ def generate_launch_description():
     ld.add_action(declare_use_composition_cmd)
     ld.add_action(declare_rviz_config_file_cmd)
     ld.add_action(declare_use_rviz_cmd)
+    ld.add_action(declare_use_joy_cmd)
     ld.add_action(declare_use_respawn_cmd)
 
     # Add the actions to launch all of the navigation nodes

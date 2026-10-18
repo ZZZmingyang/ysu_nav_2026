@@ -13,14 +13,6 @@
 # limitations under the License.
 
 
-"""Static-map variant of localization_launch.py.
-
-Keeps Point-LIO, map_server and lifecycle management; replaces small_gicp
-with one static map -> odom broadcaster. The parent applies the namespace
-and TF remappings, as in the original launch. Zero offsets require initial
-alignment with the saved map; odometry drift is not globally corrected.
-"""
-
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -41,18 +33,13 @@ def generate_launch_description():
     map_yaml_file = LaunchConfiguration("map")
     use_sim_time = LaunchConfiguration("use_sim_time")
     autostart = LaunchConfiguration("autostart")
+    prior_pcd_file = LaunchConfiguration("prior_pcd_file")
     params_file = LaunchConfiguration("params_file")
     use_composition = LaunchConfiguration("use_composition")
     container_name = LaunchConfiguration("container_name")
     container_name_full = (namespace, "/", container_name)
     use_respawn = LaunchConfiguration("use_respawn")
     log_level = LaunchConfiguration("log_level")
-    map_to_odom_x = LaunchConfiguration("map_to_odom_x")
-    map_to_odom_y = LaunchConfiguration("map_to_odom_y")
-    map_to_odom_z = LaunchConfiguration("map_to_odom_z")
-    map_to_odom_roll = LaunchConfiguration("map_to_odom_roll")
-    map_to_odom_pitch = LaunchConfiguration("map_to_odom_pitch")
-    map_to_odom_yaw = LaunchConfiguration("map_to_odom_yaw")
 
     lifecycle_nodes = ["map_server"]
 
@@ -89,11 +76,15 @@ def generate_launch_description():
         description="Use simulation (Gazebo) clock if true",
     )
 
+    declare_prior_pcd_file_cmd = DeclareLaunchArgument(
+        "prior_pcd_file",
+        default_value="",
+        description="Full path to prior PCD file to load",
+    )
+
     declare_params_file_cmd = DeclareLaunchArgument(
         "params_file",
-        default_value=os.path.join(
-            bringup_dir, "config", "reality", "nav2_params.yaml"
-        ),
+        default_value=os.path.join(bringup_dir, "params", "nav2_params.yaml"),
         description="Full path to the ROS2 parameters file to use for all launched nodes",
     )
 
@@ -125,42 +116,6 @@ def generate_launch_description():
         "log_level", default_value="info", description="log level"
     )
 
-    declare_map_to_odom_x_cmd = DeclareLaunchArgument(
-        "map_to_odom_x",
-        default_value="0.0",
-        description="Pose of odom in map: x (metres)",
-    )
-
-    declare_map_to_odom_y_cmd = DeclareLaunchArgument(
-        "map_to_odom_y",
-        default_value="0.0",
-        description="Pose of odom in map: y (metres)",
-    )
-
-    declare_map_to_odom_z_cmd = DeclareLaunchArgument(
-        "map_to_odom_z",
-        default_value="0.0",
-        description="Pose of odom in map: z (metres)",
-    )
-
-    declare_map_to_odom_roll_cmd = DeclareLaunchArgument(
-        "map_to_odom_roll",
-        default_value="0.0",
-        description="Pose of odom in map: roll (radians)",
-    )
-
-    declare_map_to_odom_pitch_cmd = DeclareLaunchArgument(
-        "map_to_odom_pitch",
-        default_value="0.0",
-        description="Pose of odom in map: pitch (radians)",
-    )
-
-    declare_map_to_odom_yaw_cmd = DeclareLaunchArgument(
-        "map_to_odom_yaw",
-        default_value="0.0",
-        description="Pose of odom in map: yaw (radians)",
-    )
-
     start_point_lio_node = Node(
         package="point_lio",
         executable="pointlio_mapping",
@@ -170,11 +125,34 @@ def generate_launch_description():
         respawn_delay=2.0,
         parameters=[
             configured_params,
-            {"use_sim_time": use_sim_time},
-            {"prior_pcd.enable": False},
-            {"pcd_save.pcd_save_en": False},
+            {"prior_pcd.prior_pcd_map_path": prior_pcd_file},
         ],
         arguments=["--ros-args", "--log-level", log_level],
+    )
+
+    start_static_transform_node = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="static_transform_publisher_map2odom",
+        output="screen",
+        arguments=[
+            "--x",
+            "0.0",
+            "--y",
+            "0.0",
+            "--z",
+            "0.0",
+            "--roll",
+            "0.0",
+            "--pitch",
+            "0.0",
+            "--yaw",
+            "0.0",
+            "--frame-id",
+            "map",
+            "--child-frame-id",
+            "odom",
+        ],
     )
 
     load_nodes = GroupAction(
@@ -187,10 +165,7 @@ def generate_launch_description():
                 output="screen",
                 respawn=use_respawn,
                 respawn_delay=2.0,
-                parameters=[
-                    configured_params,
-                    {"use_sim_time": use_sim_time, "yaml_filename": map_yaml_file},
-                ],
+                parameters=[configured_params],
                 arguments=["--ros-args", "--log-level", log_level],
             ),
             Node(
@@ -216,10 +191,7 @@ def generate_launch_description():
                 package="nav2_map_server",
                 plugin="nav2_map_server::MapServer",
                 name="map_server",
-                parameters=[
-                    configured_params,
-                    {"use_sim_time": use_sim_time, "yaml_filename": map_yaml_file},
-                ],
+                parameters=[configured_params],
             ),
             ComposableNode(
                 package="nav2_lifecycle_manager",
@@ -236,33 +208,6 @@ def generate_launch_description():
         ],
     )
 
-    # Same static publisher pattern as slam_launch.py; no SLAM is started here.
-    start_static_transform_node = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        name="static_transform_publisher_map2odom",
-        output="screen",
-        parameters=[{"use_sim_time": use_sim_time}],
-        arguments=[
-            "--x",
-            map_to_odom_x,
-            "--y",
-            map_to_odom_y,
-            "--z",
-            map_to_odom_z,
-            "--roll",
-            map_to_odom_roll,
-            "--pitch",
-            map_to_odom_pitch,
-            "--yaw",
-            map_to_odom_yaw,
-            "--frame-id",
-            "map",
-            "--child-frame-id",
-            "odom",
-        ],
-    )
-
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -274,18 +219,13 @@ def generate_launch_description():
     ld.add_action(declare_namespace_cmd)
     ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_use_sim_time_cmd)
+    ld.add_action(declare_prior_pcd_file_cmd)
     ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
     ld.add_action(declare_use_composition_cmd)
     ld.add_action(declare_container_name_cmd)
     ld.add_action(declare_use_respawn_cmd)
     ld.add_action(declare_log_level_cmd)
-    ld.add_action(declare_map_to_odom_x_cmd)
-    ld.add_action(declare_map_to_odom_y_cmd)
-    ld.add_action(declare_map_to_odom_z_cmd)
-    ld.add_action(declare_map_to_odom_roll_cmd)
-    ld.add_action(declare_map_to_odom_pitch_cmd)
-    ld.add_action(declare_map_to_odom_yaw_cmd)
 
     # Add the actions to launch all of the localiztion nodes
     ld.add_action(start_point_lio_node)
