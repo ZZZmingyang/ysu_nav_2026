@@ -19,3 +19,8 @@ __pycache__/
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/simulation/rmuc_2025.pcd
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/simulation/rmul_2024.pcd
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/simulation/rmul_2025.pcd
+
+# Generated Point-LIO and staging maps
+/src/pb2025_sentry_nav/point_lio/PCD/*.pcd
+/src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/staging/*.pcd
+/src/pb2025_sentry_nav/pb2025_nav_bringup/map/staging/*

@@ -315,8 +315,8 @@ struct CallableTraits<Result (*)(Args...) noexcept, void>
     template <typename Result, typename Class, typename... Args>              \
     struct CallableTraits<Result (Class::*)(Args...) QUALIFIERS, void>         \
     {                                                                           \
-        using Return = Result;                                                  \
-        using Arguments = std::tuple<Args...>;                                 \
+        using Return = Result;                                                   \
+        using Arguments = std::tuple<Args...>;                                    \
     }
 
 WIRE_PROTOCOL_MEMBER_TRAITS();

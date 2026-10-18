@@ -1,5 +1,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "serial_transport/serial_transport.hpp"
+#include <chrono>
 #include <rclcpp/publisher.hpp>
 #include <rclcpp/subscription.hpp>
 #include <sensor_msgs/msg/detail/imu__struct.hpp>
@@ -123,25 +124,67 @@ class Serial_Node: public rclcpp::Node
       cmd_vel_field.vx = msg.linear.x;
       cmd_vel_field.vy = msg.linear.y;
       cmd_vel_field.wz = msg.angular.z; //含自旋的角速度wz_spin了，再加上wz_nav2,这里的是wz_final
+
+      last_cmd_vel_time_ = std::chrono::steady_clock::now();
+      received_cmd_vel_ = true;
     }
 
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
       // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
+      if(msg.name.size() < 2 || msg.position.size() < 2)
+      {
+        received_cmd_gimbal_ = false;
+        return;
+      }
+
       cmd_gimbal_joint_field.rel_pitch = msg.position[0];
       cmd_gimbal_joint_field.rel_yaw = msg.position[1];
+
+      last_cmd_gimbal_time_ = std::chrono::steady_clock::now();
+      received_cmd_gimbal_ = true;
     }
 
     void timer1_callback()
     {
+      // 断流处理
+      std::chrono::steady_clock::time_point steady_now = std::chrono::steady_clock::now();
+
+      bool cmd_vel_fresh =
+        received_cmd_vel_ &&
+        (steady_now - last_cmd_vel_time_ <= CMD_VEL_TIMEOUT);
+
+      uint8_t cmd_vel_fresh_byte = static_cast<uint8_t>(cmd_vel_fresh);
+
+      bool cmd_gimbal_fresh =
+        received_cmd_gimbal_ &&
+        (steady_now - last_cmd_gimbal_time_ <= CMD_GIMBAL_TIMEOUT);
+
+      uint8_t cmd_gimbal_fresh_byte = static_cast<uint8_t>(cmd_gimbal_fresh);
+
+      // 打包数据
+
+      /*
+      | 字段 | 当前应约定的含义 | 单位 |
+      |---|---|---|
+      | `vx` | **底盘平动速度**，沿 `gimbal_yaw` 的 X 轴，向前为正 | m/s |
+      | `vy` | **底盘平动速度**，沿 `gimbal_yaw` 的 Y 轴，向左为正 | m/s |
+      | `wz` | 底盘绕竖直 Z 轴的目标角速度，俯视逆时针为正 | rad/s |
+      | `rel_pitch` | pitch 关节相对于机械零位的目标位置角 | rad |
+      | `rel_yaw` | yaw 关节相对于机械零位的目标位置角，即云台相对底盘的目标偏角 | rad |
+      */
+
       auto frame = protocol_.pack(
         0x01, 
+        cmd_vel_fresh_byte,
         cmd_vel_field.vx,
         cmd_vel_field.vy,
         cmd_vel_field.wz,
+        cmd_gimbal_fresh_byte,
         cmd_gimbal_joint_field.rel_pitch,
-        cmd_gimbal_joint_field.rel_yaw);
-                
+        cmd_gimbal_joint_field.rel_yaw
+      );
+
       //异步发送数据
       serial_driver_.async_write(frame);
     }
@@ -182,8 +225,30 @@ class Serial_Node: public rclcpp::Node
     serial_transport::Serial_Config serial_config_;
     serial_transport::SerialTransport serial_driver_;
 
+    // 断流处理
+
+    /*
+    | 情况 | `received_cmd_gimbal_` | `cmd_gimbal_fresh` |
+    |---|---:|---:|
+    | 从未收到目标 | false | false |
+    | 收到过，且未超时 | true | true |
+    | 收到过，但已超时 | true | false |
+    */
+
+    //作用是记录是否收到过cmd_vel和gimbal_joint_state，
+    //如果没有这个，则刚开始200ms内没有收到任何数据的时候就被判定是有效数据，并被定时器发出去
+    bool received_cmd_vel_{false};
+    bool received_cmd_gimbal_{false};
+
+    // 这里一定要用steady_clock,因为ros的wall_clock会因为系统时间变化而改变，而steady_clock是单调时钟不会随系统时间变化
+    std::chrono::steady_clock::time_point last_cmd_vel_time_{std::chrono::steady_clock::now()};
+    std::chrono::steady_clock::time_point last_cmd_gimbal_time_{std::chrono::steady_clock::now()};
+
+    const std::chrono::milliseconds CMD_VEL_TIMEOUT = 200ms;
+    const std::chrono::milliseconds CMD_GIMBAL_TIMEOUT = 200ms;
+
     //cmd_vel数据
-    struct 
+    struct
     {
       fp32 vx;
       fp32 vy;

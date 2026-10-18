@@ -9,6 +9,7 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
+#include <chrono>
 
 // 先用保守的软限位，避免碰到模型的机械限位
 static constexpr fp32 PITCH_MIN = -0.60f;
@@ -66,23 +67,11 @@ class Joy_Node: public rclcpp::Node
             return;
         }
 
-        // 拒绝无效数值，避免积分结果变成 NaN
-        for (const auto index : {0, 1, 3, 4, 6}) 
-        {
-            if (!std::isfinite(msg.axes[index])) {
-                stop_input();
-                received_joy_ = false;
-                return;
-            }
-        }
-
-
         cmd_vel_field.vx = msg.axes[1]; //左摇杆朝前是1.0
         cmd_vel_field.vy = msg.axes[0]; //左摇杆朝左是1.0
         cmd_vel_field.wz = msg.axes[6] * M_PI; //十字键朝左是1.0，旋转角度是1.0 * M_PI
         cmd_gimbal_joint_field.yaw_vel = msg.axes[3] * 2.5; //右摇杆朝左是1.0 * 2.5
         cmd_gimbal_joint_field.pitch_vel = msg.axes[4] * 1.0; //右摇杆朝前是1.0 * 1.0
-
 
         last_joy_time_ = std::chrono::steady_clock::now();
         received_joy_ = true;
@@ -96,12 +85,13 @@ class Joy_Node: public rclcpp::Node
         last_update_ = now;
 
         // 检查输入是否断流：这里使用真实经过的时间
-        const double input_age =
-            std::chrono::duration<double>(
-                std::chrono::steady_clock::now() - last_joy_time_
-            ).count();
+        std::chrono::steady_clock::time_point steady_now = std::chrono::steady_clock::now();
 
-        if (!received_joy_ || input_age > 0.5) 
+        bool joy_fresh =
+            received_joy_ &&
+            (steady_now - last_joy_time_ <= JOY_TIMEOUT);
+
+        if (!joy_fresh)
         {
             stop_input();
         }
@@ -169,8 +159,10 @@ class Joy_Node: public rclcpp::Node
 
     rclcpp::Time last_update_;
 
+    // 手柄断流处理
     bool received_joy_{false};
     std::chrono::steady_clock::time_point last_joy_time_{std::chrono::steady_clock::now()};
+    const std::chrono::milliseconds JOY_TIMEOUT = 200ms;
 };
 
 int main(int argc, char ** argv)
