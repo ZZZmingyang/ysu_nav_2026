@@ -69,7 +69,7 @@ class Joy_Node: public rclcpp::Node
 
         cmd_vel_field.vx = msg.axes[1]; //左摇杆朝前是1.0
         cmd_vel_field.vy = msg.axes[0]; //左摇杆朝左是1.0
-        cmd_vel_field.wz = msg.axes[6] * M_PI; //十字键朝左是1.0，旋转角度是1.0 * M_PI
+        cmd_vel_field.wz = msg.axes[6] * 0.1; //十字键朝左是1.0，旋转角度是1.0 * M_PI
         cmd_gimbal_joint_field.yaw_vel = msg.axes[3] * 2.5; //右摇杆朝左是1.0 * 2.5
         cmd_gimbal_joint_field.pitch_vel = msg.axes[4] * 1.0; //右摇杆朝前是1.0 * 1.0
 
