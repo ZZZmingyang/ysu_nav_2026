@@ -12,8 +12,8 @@
 #include <chrono>
 
 // 先用保守的软限位，避免碰到模型的机械限位
-static constexpr fp32 PITCH_MIN = -0.60f;
-static constexpr fp32 PITCH_MAX =  0.45f;
+static constexpr fp32 PITCH_MIN = -0.56f;
+static constexpr fp32 PITCH_MAX =  0.56f;
 
 using namespace std::chrono_literals;
 
