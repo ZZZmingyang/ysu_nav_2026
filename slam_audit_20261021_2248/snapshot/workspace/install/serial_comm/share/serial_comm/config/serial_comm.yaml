@@ -1,0 +1,8 @@
+serial_node_cpp:
+  ros__parameters:
+    port: "/dev/serial/by-id/usb-STMicroelectronics_STM32_Virtual_ComPort_3658305B3533-if00"  # 改成当前串口设备名
+    # port: "/dev/ttyACM0"  # 改成当前串口设备名
+    # port: "/dev/ttyUSB0"  # 改成当前串口设备名
+    # port: "/dev/pts/5"  # 改成当前串口设备名
+    # port: "/tmp/ttyV0"  # 改成当前串口设备名
+    baud_rate: 115200

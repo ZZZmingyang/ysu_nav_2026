@@ -1,0 +1,19 @@
+/static_transform_publisher_map2odom:
+  ros__parameters:
+    child_frame_id: odom
+    frame_id: map
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    qos_overrides./tf_static.publisher.depth: 1
+    qos_overrides./tf_static.publisher.history: keep_last
+    qos_overrides./tf_static.publisher.reliability: reliable
+    rotation.w: 1.0
+    rotation.x: 0.0
+    rotation.y: 0.0
+    rotation.z: 0.0
+    translation.x: 0.0
+    translation.y: 0.0
+    translation.z: 0.0
+    use_sim_time: false

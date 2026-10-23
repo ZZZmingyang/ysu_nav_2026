@@ -1,0 +1,8 @@
+[INFO] [1792593955.189310036] [map_saver]: 
+	map_saver lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.189557213] [map_saver]: Creating
+[INFO] [1792593955.189795984] [map_saver]: Configuring
+[INFO] [1792593955.192424304] [map_saver]: Activating
+[INFO] [1792593955.192452702] [map_saver]: Creating bond (map_saver) to lifecycle manager.

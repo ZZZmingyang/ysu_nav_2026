@@ -1,0 +1,63 @@
+{
+  "wall_time": 1792594419.6911733,
+  "remote_path": "/tmp/codex_slam_runtime_snapshot_20261021_2254",
+  "map_header": {
+    "stamp": {
+      "sec": 1792594419,
+      "nanosec": 12745472
+    },
+    "frame_id": "map"
+  },
+  "map_info": {
+    "map_load_time": {
+      "sec": 0,
+      "nanosec": 0
+    },
+    "resolution": 0.05000000074505806,
+    "width": 63,
+    "height": 21,
+    "origin": {
+      "position": {
+        "x": -0.974247010924249,
+        "y": -0.024122842232304334,
+        "z": 0.0
+      },
+      "orientation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      }
+    }
+  },
+  "serialize_result": {
+    "result": 0
+  },
+  "files": [
+    {
+      "name": "slam_state.posegraph",
+      "bytes": 4975333,
+      "sha256": "04e8f51a02725b536f28068d2adf234569dfb489538920cfe39a1c2526153002"
+    },
+    {
+      "name": "slam_state.data",
+      "bytes": 19298,
+      "sha256": "ad479c0765470180ba46c204b952303d936897a190389dc20c6b8482f9d02578"
+    },
+    {
+      "name": "current_map.yaml",
+      "bytes": 176,
+      "sha256": "d018d86ec30b55a33da9999dba4e8356000fea8db53f258ce943e6fd9915387d"
+    },
+    {
+      "name": "current_map.pgm",
+      "bytes": 1336,
+      "sha256": "4ace3d50f000c35dbb64264520c6920383b958866029e97bafe96678555cb948"
+    },
+    {
+      "name": "current_map.cdr",
+      "bytes": 1427,
+      "sha256": "aad363faa9a584a39b47b7b778b2c7b58f1fe0b3ef2beb174b24462a98915488"
+    }
+  ]
+}

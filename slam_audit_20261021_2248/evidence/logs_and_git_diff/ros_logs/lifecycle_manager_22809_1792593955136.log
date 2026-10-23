@@ -1,0 +1,8 @@
+[INFO] [1792593955.162406029] [lifecycle_manager_slam]: Creating
+[INFO] [1792593955.166873246] [lifecycle_manager_slam]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[INFO] [1792593955.186815884] [lifecycle_manager_slam]: [34m[1mStarting managed nodes bringup...[0m[0m
+[INFO] [1792593955.186933395] [lifecycle_manager_slam]: [34m[1mConfiguring map_saver[0m[0m
+[INFO] [1792593955.192283130] [lifecycle_manager_slam]: [34m[1mActivating map_saver[0m[0m
+[INFO] [1792593955.296549160] [lifecycle_manager_slam]: Server map_saver connected with bond.
+[INFO] [1792593955.296599318] [lifecycle_manager_slam]: [34m[1mManaged nodes are active[0m[0m
+[INFO] [1792593955.296611849] [lifecycle_manager_slam]: [34m[1mCreating bond timer...[0m[0m

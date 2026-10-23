@@ -11,6 +11,9 @@
 #include "sensor_msgs/msg/joint_state.hpp"
 #include <functional>
 #include <tf2/LinearMath/Quaternion.h>
+#include <algorithm>
+#include <cmath>
+
 
 
 using namespace std::chrono_literals;
@@ -120,10 +123,39 @@ class Serial_Node: public rclcpp::Node
 
     void cmd_vel_sub_callback(const geometry_msgs::msg::Twist &msg)
     {
+      // 限制速度
+      constexpr fp64 MAX_LINEAR_SPEED = 0.20;   // m/s，平移合速度
+      constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
+
+      fp64 vx = msg.linear.x;
+      fp64 vy = msg.linear.y;
+      fp64 wz = msg.angular.z;
+
+      // 无效输入：清零，并标记为无效
+      if (!std::isfinite(vx) || !std::isfinite(vy) ||
+          !std::isfinite(wz)) 
+      {
+        cmd_vel_field = {};
+        received_cmd_vel_ = false;
+        return;
+      }
+
+      // 同比缩小两个分量，保持平移方向
+      const fp64 speed = std::hypot(vx, vy);
+      if (speed > MAX_LINEAR_SPEED) 
+      {
+        const fp64 scale = MAX_LINEAR_SPEED / speed;
+        vx *= scale;
+        vy *= scale;
+      }
+
+      // 限制角速度
+      wz = std::clamp(wz, -MAX_ANGULAR_SPEED, MAX_ANGULAR_SPEED);
+
       // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
-      cmd_vel_field.vx = msg.linear.x;
-      cmd_vel_field.vy = msg.linear.y;
-      cmd_vel_field.wz = msg.angular.z; //含自旋的角速度wz_spin了，再加上wz_nav2,这里的是wz_final
+      cmd_vel_field.vx = static_cast<fp32>(vx);
+      cmd_vel_field.vy = static_cast<fp32>(vy);
+      cmd_vel_field.wz = static_cast<fp32>(wz);  //含自旋的角速度wz_spin了，再加上wz_nav2,这里的是wz_final
 
       last_cmd_vel_time_ = std::chrono::steady_clock::now();
       received_cmd_vel_ = true;
@@ -161,6 +193,12 @@ class Serial_Node: public rclcpp::Node
         (steady_now - last_cmd_gimbal_time_ <= CMD_GIMBAL_TIMEOUT);
 
       uint8_t cmd_gimbal_fresh_byte = static_cast<uint8_t>(cmd_gimbal_fresh);
+
+      // 清空无效数据
+      if (!cmd_vel_fresh) 
+      {
+        cmd_vel_field = {};
+      }
 
       // 打包数据
 

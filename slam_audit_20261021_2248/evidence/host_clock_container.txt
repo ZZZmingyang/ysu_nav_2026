@@ -1,0 +1,5 @@
+2026-10-21T22:56:16+08:00
+Timezone=Asia/Shanghai
+NTP=yes
+NTPSynchronized=yes
+tungchiahui/ysu-ros:humble-jammy sha256:25d44e42a676dce270c71780d38b8791f2b64035efe5001419f486ac3cb8e9b8 host [{"Type":"bind","Source":"/dev","Destination":"/dev","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/ysu","Destination":"/home/ysu","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/tmp/.X11-unix","Destination":"/tmp/.X11-unix","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/ysu/.Xauthority","Destination":"/home/ysu/.Xauthority","Mode":"ro","RW":false,"Propagation":"rprivate"},{"Type":"bind","Source":"/run/user/1000","Destination":"/run/user/1000","Mode":"","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/run/user/1000/wayland-0","Destination":"/run/user/1000/wayland-0","Mode":"","RW":true,"Propagation":"rprivate"}]

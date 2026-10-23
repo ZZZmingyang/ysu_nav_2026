@@ -1,0 +1,71 @@
+class Subscription:
+
+    def __init__(
+         self,
+         subscription_impl: _rclpy.Subscription,
+         msg_type: MsgType,
+         topic: str,
+         callback: Callable,
+         callback_group: CallbackGroup,
+         qos_profile: QoSProfile,
+         raw: bool,
+         event_callbacks: SubscriptionEventCallbacks,
+    ) -> None:
+        """
+        Create a container for a ROS subscription.
+
+        .. warning:: Users should not create a subscription with this constructor, instead they
+           should call :meth:`.Node.create_subscription`.
+
+        :param subscription_impl: :class:`Subscription` wrapping the underlying
+            ``rcl_subscription_t`` object.
+        :param msg_type: The type of ROS messages the subscription will subscribe to.
+        :param topic: The name of the topic the subscription will subscribe to.
+        :param callback: A user-defined callback function that is called when a message is
+            received by the subscription.
+        :param callback_group: The callback group for the subscription. If ``None``, then the
+            nodes default callback group is used.
+        :param qos_profile: The quality of service profile to apply to the subscription.
+        :param raw: If ``True``, then received messages will be stored in raw binary
+            representation.
+        """
+        self.__subscription = subscription_impl
+        self.msg_type = msg_type
+        self.topic = topic
+        self.callback = callback
+        self.callback_group = callback_group
+        # True when the callback is ready to fire but has not been "taken" by an executor
+        self._executor_event = False
+        self.qos_profile = qos_profile
+        self.raw = raw
+
+        self.event_handlers: QoSEventHandler = event_callbacks.create_event_handlers(
+            callback_group, subscription_impl, topic)
+
+    @property
+    def handle(self):
+        return self.__subscription
+
+    def destroy(self):
+        for handler in self.event_handlers:
+            handler.destroy()
+        self.handle.destroy_when_not_in_use()
+
+    @property
+    def topic_name(self):
+        with self.handle:
+            return self.__subscription.get_topic_name()
+
+    @property
+    def logger_name(self) -> str:
+        """Get the name of the logger associated with the node of the subscription."""
+        with self.handle:
+            return self.__subscription.get_logger_name()
+
+    def _take_subscription(self, sub):
+        with sub.handle:
+            msg_info = sub.handle.take_message(sub.msg_type, sub.raw)
+            if msg_info is not None:
+                return msg_info[0]
+        return None
+

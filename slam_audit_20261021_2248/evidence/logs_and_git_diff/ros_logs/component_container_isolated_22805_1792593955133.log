@@ -1,0 +1,185 @@
+[INFO] [1792593955.373678084] [nav2_container]: Load Library: /home/ysu/robomaster/ysu2026_rm_sentry/install/loam_interface/lib/libloam_interface.so
+[INFO] [1792593955.375876406] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<loam_interface::LoamInterfaceNode>
+[INFO] [1792593955.375894726] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<loam_interface::LoamInterfaceNode>
+[INFO] [1792593955.384253537] [nav2_container]: Load Library: /home/ysu/robomaster/ysu2026_rm_sentry/install/sensor_scan_generation/lib/libsensor_scan_generation.so
+[INFO] [1792593955.385574949] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<sensor_scan_generation::SensorScanGenerationNode>
+[INFO] [1792593955.385587757] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<sensor_scan_generation::SensorScanGenerationNode>
+[INFO] [1792593955.393351972] [nav2_container]: Load Library: /home/ysu/robomaster/ysu2026_rm_sentry/install/fake_vel_transform/lib/libfake_vel_transform.so
+[INFO] [1792593955.395349441] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<fake_vel_transform::FakeVelTransform>
+[INFO] [1792593955.395366038] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<fake_vel_transform::FakeVelTransform>
+[INFO] [1792593955.397946445] [fake_vel_transform]: Start FakeVelTransform!
+[INFO] [1792593955.404326197] [nav2_container]: Load Library: /opt/ros/humble/lib/libcontroller_server_core.so
+[INFO] [1792593955.406848965] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[INFO] [1792593955.406862072] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[INFO] [1792593955.411624448] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.416018998] [controller_server]: Creating controller server
+[INFO] [1792593955.420836501] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.421476294] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1792593955.423859854] [nav2_container]: Load Library: /opt/ros/humble/lib/libsmoother_server_core.so
+[INFO] [1792593955.424981514] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[INFO] [1792593955.424999673] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[INFO] [1792593955.429599461] [smoother_server]: 
+	smoother_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.431283588] [smoother_server]: Creating smoother server
+[INFO] [1792593955.432509463] [nav2_container]: Load Library: /opt/ros/humble/lib/libplanner_server_core.so
+[INFO] [1792593955.432938452] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[INFO] [1792593955.432947992] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[INFO] [1792593955.437704050] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.439301013] [planner_server]: Creating
+[INFO] [1792593955.444282147] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.444940844] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1792593955.447339798] [nav2_container]: Load Library: /opt/ros/humble/lib/libbehavior_server_core.so
+[INFO] [1792593955.448976421] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[INFO] [1792593955.448988045] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[INFO] [1792593955.454149104] [behavior_server]: 
+	behavior_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.457374438] [nav2_container]: Load Library: /opt/ros/humble/lib/libbt_navigator_core.so
+[INFO] [1792593955.458344146] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[INFO] [1792593955.458356036] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[INFO] [1792593955.464566062] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.464633649] [bt_navigator]: Creating
+[INFO] [1792593955.466134532] [nav2_container]: Load Library: /opt/ros/humble/lib/libwaypoint_follower_core.so
+[INFO] [1792593955.466487262] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[INFO] [1792593955.466495005] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[INFO] [1792593955.471995100] [waypoint_follower]: 
+	waypoint_follower lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.472495697] [waypoint_follower]: Creating
+[INFO] [1792593955.473759624] [nav2_container]: Load Library: /opt/ros/humble/lib/libvelocity_smoother_core.so
+[INFO] [1792593955.474182043] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[INFO] [1792593955.474190175] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[INFO] [1792593955.479739053] [velocity_smoother]: 
+	velocity_smoother lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1792593955.481040616] [nav2_container]: Load Library: /opt/ros/humble/lib/libnav2_lifecycle_manager_core.so
+[INFO] [1792593955.481499047] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1792593955.481507983] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1792593955.485994966] [lifecycle_manager_navigation]: Creating
+[INFO] [1792593955.487899207] [lifecycle_manager_navigation]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[INFO] [1792593955.493059780] [lifecycle_manager_navigation]: [34m[1mStarting managed nodes bringup...[0m[0m
+[INFO] [1792593955.493098478] [lifecycle_manager_navigation]: [34m[1mConfiguring controller_server[0m[0m
+[INFO] [1792593955.493249758] [controller_server]: Configuring controller interface
+[INFO] [1792593955.493296398] [controller_server]: getting goal checker plugins..
+[INFO] [1792593955.493476526] [controller_server]: Controller frequency set to 20.0000Hz
+[INFO] [1792593955.493542919] [local_costmap.local_costmap]: Configuring
+[INFO] [1792593955.495664859] [local_costmap.local_costmap]: Using plugin "static_layer"
+[INFO] [1792593955.497543135] [local_costmap.local_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1792593955.497944844] [local_costmap.local_costmap]: Initialized plugin "static_layer"
+[INFO] [1792593955.497956700] [local_costmap.local_costmap]: Using plugin "intensity_voxel_layer"
+[INFO] [1792593955.498984999] [local_costmap.local_costmap]: Subscribed to Topics: terrain_map
+[INFO] [1792593955.502153232] [local_costmap.local_costmap]: Initialized plugin "intensity_voxel_layer"
+[INFO] [1792593955.502177730] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1792593955.502799237] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1792593955.506968426] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1792593955.507593998] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1792593955.507744330] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1792593955.508511674] [controller_server]: Created controller : FollowPath of type pb_omni_pid_pursuit_controller::OmniPidPursuitController
+[INFO] [1792593955.514286845] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1792593955.517615617] [lifecycle_manager_navigation]: [34m[1mConfiguring smoother_server[0m[0m
+[INFO] [1792593955.517692918] [smoother_server]: Configuring smoother server
+[INFO] [1792593955.520746800] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[INFO] [1792593955.521257325] [smoother_server]: Smoother Server has simple_smoother  smoothers available.
+[INFO] [1792593955.523781294] [lifecycle_manager_navigation]: [34m[1mConfiguring planner_server[0m[0m
+[INFO] [1792593955.523846623] [planner_server]: Configuring
+[INFO] [1792593955.523870652] [global_costmap.global_costmap]: Configuring
+[INFO] [1792593955.526067508] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1792593955.526810901] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1792593955.527111906] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1792593955.527130317] [global_costmap.global_costmap]: Using plugin "intensity_voxel_layer"
+[INFO] [1792593955.527823096] [global_costmap.global_costmap]: Subscribed to Topics: terrain_map_ext
+[INFO] [1792593955.530486064] [global_costmap.global_costmap]: Initialized plugin "intensity_voxel_layer"
+[INFO] [1792593955.530505996] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1792593955.531067189] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1792593955.534254584] [planner_server]: Created global planner plugin GridBased of type nav2_theta_star_planner/ThetaStarPlanner
+[INFO] [1792593955.534756807] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1792593955.539055597] [lifecycle_manager_navigation]: [34m[1mConfiguring behavior_server[0m[0m
+[INFO] [1792593955.539144886] [behavior_server]: Configuring
+[INFO] [1792593955.541796808] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors/Spin
+[INFO] [1792593955.542502989] [behavior_server]: Configuring spin
+[INFO] [1792593955.544956460] [behavior_server]: Creating behavior plugin backup of type pb_nav2_behaviors/BackUpFreeSpace
+[INFO] [1792593955.546009855] [behavior_server]: Configuring backup
+[INFO] [1792593955.549631623] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors/DriveOnHeading
+[INFO] [1792593955.550202808] [behavior_server]: Configuring drive_on_heading
+[INFO] [1792593955.552558826] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors/AssistedTeleop
+[INFO] [1792593955.553470115] [behavior_server]: Configuring assisted_teleop
+[INFO] [1792593955.556445682] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors/Wait
+[INFO] [1792593955.556976130] [behavior_server]: Configuring wait
+[INFO] [1792593955.559281433] [lifecycle_manager_navigation]: [34m[1mConfiguring bt_navigator[0m[0m
+[INFO] [1792593955.559346061] [bt_navigator]: Configuring
+[INFO] [1792593955.594460783] [lifecycle_manager_navigation]: [34m[1mConfiguring waypoint_follower[0m[0m
+[INFO] [1792593955.594559638] [waypoint_follower]: Configuring
+[INFO] [1792593955.598766819] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[INFO] [1792593955.599355962] [lifecycle_manager_navigation]: [34m[1mConfiguring velocity_smoother[0m[0m
+[INFO] [1792593955.599470974] [velocity_smoother]: Configuring velocity smoother
+[INFO] [1792593955.601779296] [lifecycle_manager_navigation]: [34m[1mActivating controller_server[0m[0m
+[INFO] [1792593955.601845536] [controller_server]: Activating
+[INFO] [1792593955.601867132] [local_costmap.local_costmap]: Activating
+[INFO] [1792593955.601875083] [local_costmap.local_costmap]: Checking transform
+[INFO] [1792593955.601895098] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593956.101937580] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593956.601935403] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593957.101938799] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593957.601937247] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593958.101943542] [local_costmap.local_costmap]: Timed out waiting for transform from gimbal_yaw_fake to odom to become available, tf error: Could not find a connection between 'odom' and 'gimbal_yaw_fake' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1792593958.601989196] [local_costmap.local_costmap]: start
+[INFO] [1792593958.702863471] [controller_server]: Activating controller: FollowPath of type regulated_pure_pursuit_controller::OmniPidPursuitController
+[INFO] [1792593958.702968103] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1792593958.712543822] [local_costmap.local_costmap]: StaticLayer: Resizing static layer to 63 X 21 at 0.050000 m/pix
+[INFO] [1792593958.712544044] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 63 X 21 at 0.050000 m/pix
+[INFO] [1792593958.805722784] [lifecycle_manager_navigation]: Server controller_server connected with bond.
+[INFO] [1792593958.805748953] [lifecycle_manager_navigation]: [34m[1mActivating smoother_server[0m[0m
+[INFO] [1792593958.805910263] [smoother_server]: Activating
+[INFO] [1792593958.805937128] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[INFO] [1792593958.908803818] [lifecycle_manager_navigation]: Server smoother_server connected with bond.
+[INFO] [1792593958.908834865] [lifecycle_manager_navigation]: [34m[1mActivating planner_server[0m[0m
+[INFO] [1792593958.909002027] [planner_server]: Activating
+[INFO] [1792593958.909031442] [global_costmap.global_costmap]: Activating
+[INFO] [1792593958.909036776] [global_costmap.global_costmap]: Checking transform
+[INFO] [1792593958.909074069] [global_costmap.global_costmap]: start
+[INFO] [1792593959.109732347] [planner_server]: Activating plugin GridBased of type nav2_theta_star_planner
+[INFO] [1792593959.110694317] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1792593959.212873980] [lifecycle_manager_navigation]: Server planner_server connected with bond.
+[INFO] [1792593959.212908348] [lifecycle_manager_navigation]: [34m[1mActivating behavior_server[0m[0m
+[INFO] [1792593959.213087927] [behavior_server]: Activating
+[INFO] [1792593959.213105108] [behavior_server]: Activating spin
+[INFO] [1792593959.213144266] [behavior_server]: Activating backup
+[INFO] [1792593959.213193032] [behavior_server]: Activating drive_on_heading
+[INFO] [1792593959.213205052] [behavior_server]: Activating assisted_teleop
+[INFO] [1792593959.213215372] [behavior_server]: Activating wait
+[INFO] [1792593959.213227817] [behavior_server]: Creating bond (behavior_server) to lifecycle manager.
+[INFO] [1792593959.316329195] [lifecycle_manager_navigation]: Server behavior_server connected with bond.
+[INFO] [1792593959.316358417] [lifecycle_manager_navigation]: [34m[1mActivating bt_navigator[0m[0m
+[INFO] [1792593959.316539519] [bt_navigator]: Activating
+[INFO] [1792593959.334631850] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1792593959.436344487] [lifecycle_manager_navigation]: Server bt_navigator connected with bond.
+[INFO] [1792593959.436375988] [lifecycle_manager_navigation]: [34m[1mActivating waypoint_follower[0m[0m
+[INFO] [1792593959.436633987] [waypoint_follower]: Activating
+[INFO] [1792593959.436679178] [waypoint_follower]: Creating bond (waypoint_follower) to lifecycle manager.
+[INFO] [1792593959.539253243] [lifecycle_manager_navigation]: Server waypoint_follower connected with bond.
+[INFO] [1792593959.539278966] [lifecycle_manager_navigation]: [34m[1mActivating velocity_smoother[0m[0m
+[INFO] [1792593959.539482976] [velocity_smoother]: Activating
+[INFO] [1792593959.539518302] [velocity_smoother]: Creating bond (velocity_smoother) to lifecycle manager.
+[INFO] [1792593959.642473042] [lifecycle_manager_navigation]: Server velocity_smoother connected with bond.
+[INFO] [1792593959.642501304] [lifecycle_manager_navigation]: [34m[1mManaged nodes are active[0m[0m
+[INFO] [1792593959.642522738] [lifecycle_manager_navigation]: [34m[1mCreating bond timer...[0m[0m

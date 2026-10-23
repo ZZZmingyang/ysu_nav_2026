@@ -1,0 +1,55 @@
+/controller_server:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    FollowPath.approach_velocity_scaling_dist: 1.0
+    FollowPath.curvature_backward_dist: 0.3
+    FollowPath.curvature_forward_dist: 0.7
+    FollowPath.curvature_max: 0.7
+    FollowPath.curvature_min: 0.4
+    FollowPath.enable_rotation: false
+    FollowPath.lookahead_dist: 2.0
+    FollowPath.lookahead_time: 1.0
+    FollowPath.max_lookahead_dist: 1.0
+    FollowPath.max_robot_pose_search_dist: 2.4875000000000003
+    FollowPath.max_velocity_scaling_factor_rate: 0.9
+    FollowPath.min_approach_linear_velocity: 0.5
+    FollowPath.min_lookahead_dist: 0.5
+    FollowPath.min_max_sum_error: 1.0
+    FollowPath.plugin: pb_omni_pid_pursuit_controller::OmniPidPursuitController
+    FollowPath.reduction_ratio_at_high_curvature: 0.5
+    FollowPath.rotation_kd: 0.3
+    FollowPath.rotation_ki: 0.1
+    FollowPath.rotation_kp: 3.0
+    FollowPath.transform_tolerance: 0.1
+    FollowPath.translation_kd: 0.3
+    FollowPath.translation_ki: 0.1
+    FollowPath.translation_kp: 3.0
+    FollowPath.use_interpolation: false
+    FollowPath.use_rotate_to_heading: false
+    FollowPath.use_rotate_to_heading_treshold: 0.1
+    FollowPath.use_velocity_scaled_lookahead_dist: true
+    FollowPath.v_angular_max: 3.0
+    FollowPath.v_angular_min: -3.0
+    FollowPath.v_linear_max: 2.5
+    FollowPath.v_linear_min: -2.5
+    controller_frequency: 20.0
+    controller_plugins:
+    - FollowPath
+    failure_tolerance: 0.3
+    general_goal_checker.plugin: nav2_controller::SimpleGoalChecker
+    general_goal_checker.stateful: true
+    general_goal_checker.xy_goal_tolerance: 0.15
+    general_goal_checker.yaw_goal_tolerance: 6.28
+    goal_checker_plugins:
+    - general_goal_checker
+    min_theta_velocity_threshold: 0.001
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.5
+    odom_topic: odometry
+    progress_checker.movement_time_allowance: 10.0
+    progress_checker.plugin: nav2_controller::SimpleProgressChecker
+    progress_checker.required_movement_radius: 0.5
+    progress_checker_plugin: progress_checker
+    publish_zero_velocity: true
+    speed_limit_topic: speed_limit
+    use_sim_time: false

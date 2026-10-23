@@ -1,0 +1,16 @@
+/livox_ros_driver2:
+  ros__parameters:
+    cmdline_input_bd_code: livox0000000001
+    data_src: 0
+    frame_id: front_mid360
+    lvx_file_path: ''
+    multi_topic: 0
+    output_data_type: 0
+    publish_freq: 20.0
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    use_sim_time: false
+    user_config_path: /home/ysu/robomaster/ysu2026_rm_sentry/install/pb2025_nav_bringup/share/pb2025_nav_bringup/config/reality/mid360_user_config.json
+    xfer_format: 4

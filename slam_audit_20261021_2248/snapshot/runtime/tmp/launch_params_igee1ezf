@@ -1,0 +1,3 @@
+/lifecycle_manager_slam:
+  ros__parameters:
+    autostart: true

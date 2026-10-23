@@ -1,0 +1,4 @@
+[INFO] [1792593955.160726069] [static_transform_publisher_map2odom]: Spinning until stopped - publishing transform
+translation: ('0.000000', '0.000000', '0.000000')
+rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+from 'map' to 'odom'

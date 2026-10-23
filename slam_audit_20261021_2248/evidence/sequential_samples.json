@@ -1,0 +1,3973 @@
+{
+  "start_wall_time": 1792594325.8285751,
+  "method": "one subscription at a time; BEST_EFFORT VOLATILE depth=1 except tf_static TRANSIENT_LOCAL RELIABLE; local container",
+  "topics": {
+    "/tf_static": {
+      "exists": true,
+      "type": "tf2_msgs/msg/TFMessage",
+      "publisher_count": 2,
+      "by_gid": {
+        "010f31231159453500000000000013030000000000000000": "/robot_state_publisher",
+        "010f31232159e90600000000000012030000000000000000": "/static_transform_publisher_map2odom"
+      },
+      "duration_seconds": 4.016416679000031,
+      "count": 2,
+      "received_rate_hz": 1983.8986785898576,
+      "counts_by_gid": {
+        "not_available_in_humble_rclpy": 2
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0005040579999331385,
+        0.0005040579999331385
+      ],
+      "last_message": {
+        "fields": {
+          "transforms": "sequence<geometry_msgs/TransformStamped>"
+        }
+      },
+      "first_message": {
+        "fields": {
+          "transforms": "sequence<geometry_msgs/TransformStamped>"
+        }
+      },
+      "tf_edges": [
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "map",
+          "child": "odom",
+          "stamp": 1792593955.1567342,
+          "age_seconds": 370.6889224052429,
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "armor_support_frame_0",
+          "child": "armor_0",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538429260254,
+          "translation": [
+            0.075,
+            0.0,
+            -0.071
+          ],
+          "rotation_xyzw": [
+            0.0,
+            -0.13062563953108347,
+            0.0,
+            0.9914317638128686
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "armor_support_frame_1",
+          "child": "armor_1",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65384697914124,
+          "translation": [
+            0.075,
+            0.0,
+            -0.071
+          ],
+          "rotation_xyzw": [
+            0.0,
+            -0.13062563953108347,
+            0.0,
+            0.9914317638128686
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "armor_support_frame_2",
+          "child": "armor_2",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538496017456,
+          "translation": [
+            0.075,
+            0.0,
+            -0.071
+          ],
+          "rotation_xyzw": [
+            0.0,
+            -0.13062563953108347,
+            0.0,
+            0.9914317638128686
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "armor_support_frame_3",
+          "child": "armor_3",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538519859314,
+          "translation": [
+            0.075,
+            0.0,
+            -0.071
+          ],
+          "rotation_xyzw": [
+            0.0,
+            -0.13062563953108347,
+            0.0,
+            0.9914317638128686
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "armor_support_frame_0",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65385580062866,
+          "translation": [
+            0.197,
+            0.0,
+            0.061
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "armor_support_frame_1",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65385842323303,
+          "translation": [
+            0.0,
+            0.116,
+            0.061
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.7071080798594737,
+            0.7071054825112364
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "armor_support_frame_2",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65386033058167,
+          "translation": [
+            -0.197,
+            0.0,
+            0.061
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.9999996829318346,
+            0.0007963267107332633
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "armor_support_frame_3",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538624763489,
+          "translation": [
+            0.0,
+            -0.116,
+            0.061
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            -0.7071080798594737,
+            0.7071054825112364
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "base_footprint",
+          "child": "chassis",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538646221161,
+          "translation": [
+            0.0,
+            0.0,
+            0.0625
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_pitch",
+          "child": "front_industrial_camera",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65386724472046,
+          "translation": [
+            0.1,
+            0.0,
+            0.045
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "front_industrial_camera",
+          "child": "front_industrial_camera_optical_frame",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.65386986732483,
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.5,
+            -0.4999999999999999,
+            0.5,
+            -0.5000000000000001
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_yaw",
+          "child": "front_mid360",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538734436035,
+          "translation": [
+            -0.00299,
+            0.10469,
+            0.09558
+          ],
+          "rotation_xyzw": [
+            2.343260202663149e-17,
+            0.3826834323650898,
+            0.9238795325112867,
+            5.6571305614385e-17
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_yaw_odom",
+          "child": "gimbal_pitch_odom",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538767814636,
+          "translation": [
+            0.0,
+            0.0,
+            0.09641
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "gimbal_yaw_odom",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.653879404068,
+          "translation": [
+            0.0,
+            0.0,
+            0.21046
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "light_indicator",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538813114166,
+          "translation": [
+            -0.207,
+            0.0,
+            0.1
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_pitch",
+          "child": "speed_monitor",
+          "stamp": 1792593955.1923113,
+          "age_seconds": 370.6538836956024,
+          "translation": [
+            0.07,
+            0.0,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 1,
+          "received_rate_hz": 0.2489781514026006
+        }
+      ]
+    },
+    "/tf": {
+      "exists": true,
+      "type": "tf2_msgs/msg/TFMessage",
+      "publisher_count": 6,
+      "by_gid": {
+        "010f31231159453500000000000012030000000000000000": "/robot_state_publisher",
+        "010f31231559acdd00000000000035030000000000000000": "/sensor_scan_generation",
+        "010f31231559acdd00000000000049030000000000000000": "/fake_vel_transform",
+        "010f31231d593c4100000100000018030000000000000000": "/slam_toolbox",
+        "010f31231d593c4100000100000028030000000000000000": "/slam_toolbox",
+        "010f31231f5952650000000000001a030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 4.0066157779999685,
+      "count": 317,
+      "received_rate_hz": 79.01667307113394,
+      "counts_by_gid": {
+        "not_available_in_humble_rclpy": 317
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0001869179999403059,
+        0.020194956999944225
+      ],
+      "last_message": {
+        "fields": {
+          "transforms": "sequence<geometry_msgs/TransformStamped>"
+        }
+      },
+      "first_message": {
+        "fields": {
+          "transforms": "sequence<geometry_msgs/TransformStamped>"
+        }
+      },
+      "tf_edges": [
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_yaw",
+          "child": "gimbal_yaw_fake",
+          "stamp": 1792594333.859909,
+          "age_seconds": 0.00015282630920410156,
+          "translation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            -0.015001315003418468,
+            0.9998874739430273
+          ],
+          "count": 201,
+          "received_rate_hz": 50.16702652240232
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "front_left_wheel",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.0004642009735107422,
+          "translation": [
+            0.162,
+            0.162,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "front_right_wheel",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.00046896934509277344,
+          "translation": [
+            0.162,
+            -0.162,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_yaw",
+          "child": "gimbal_pitch",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.0004718303680419922,
+          "translation": [
+            0.0,
+            0.0,
+            0.09641
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "gimbal_pitch_odom",
+          "child": "gimbal_yaw",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.0004744529724121094,
+          "translation": [
+            0.0,
+            0.0,
+            -0.09641
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "rear_left_wheel",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.00047707557678222656,
+          "translation": [
+            -0.162,
+            0.162,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "chassis",
+          "child": "rear_right_wheel",
+          "stamp": 1792594333.8085475,
+          "age_seconds": 0.0004792213439941406,
+          "translation": [
+            -0.162,
+            -0.162,
+            0.0
+          ],
+          "rotation_xyzw": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "count": 40,
+          "received_rate_hz": 9.98348786515469
+        },
+        {
+          "publisher_gid": "not_available_in_humble_rclpy",
+          "publisher": "unmatched",
+          "parent": "odom",
+          "child": "base_footprint",
+          "stamp": 1792594333.7642221,
+          "age_seconds": 0.04994797706604004,
+          "translation": [
+            0.02767904239818559,
+            0.023008146876921348,
+            0.008218744518547427
+          ],
+          "rotation_xyzw": [
+            0.0033185164355689755,
+            0.001181795584612539,
+            0.01499744651949741,
+            0.9998813266611983
+          ],
+          "count": 76,
+          "received_rate_hz": 18.96862694379391
+        }
+      ]
+    },
+    "/livox/lidar": {
+      "exists": true,
+      "type": "livox_ros_driver2/msg/CustomMsg",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f312313599ab800000000000013030000000000000000": "/livox_ros_driver2"
+      },
+      "duration_seconds": 2.025805228000081,
+      "count": 41,
+      "received_rate_hz": 20.01086273675006,
+      "counts_by_gid": {
+        "010f312313599ab800000000000013030000000000000000": 41
+      },
+      "observed_bytes_per_second": 3848630.6048765355,
+      "receive_interval_min_max": [
+        0.041500267999936113,
+        0.05800666999994064
+      ],
+      "first_header_stamp": 1792594333.8139567,
+      "last_header_stamp": 1792594335.8150585,
+      "unique_header_stamps": 41,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 19.98898874318811,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "timebase": "uint64",
+          "point_num": "uint32",
+          "lidar_id": "uint8",
+          "rsvd": "uint8[3]",
+          "points": "sequence<livox_ros_driver2/CustomPoint>"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594335.8150585,
+        "age_seconds": 0.07381081581115723,
+        "timebase": 1792594335815058574,
+        "point_num": 9984,
+        "lidar_id": 192,
+        "actual_points": 9984,
+        "sample_points": [
+          {
+            "offset_time": 0,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "reflectivity": 0,
+            "tag": 0,
+            "line": 0
+          },
+          {
+            "offset_time": 4947,
+            "x": 0.00800000037997961,
+            "y": -0.36800000071525574,
+            "z": 0.3569999933242798,
+            "reflectivity": 6,
+            "tag": 32,
+            "line": 1
+          },
+          {
+            "offset_time": 9894,
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "reflectivity": 0,
+            "tag": 0,
+            "line": 2
+          }
+        ],
+        "offset_time_min_max": [
+          0,
+          49381283
+        ],
+        "tags": {
+          "0": 8786,
+          "32": 677,
+          "4": 3,
+          "1": 46,
+          "34": 3,
+          "16": 430,
+          "2": 36,
+          "18": 2,
+          "8": 1
+        },
+        "lines": {
+          "0": 2496,
+          "1": 2496,
+          "2": 2496,
+          "3": 2496
+        },
+        "finite_xyz": 9984
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "timebase": "uint64",
+          "point_num": "uint32",
+          "lidar_id": "uint8",
+          "rsvd": "uint8[3]",
+          "points": "sequence<livox_ros_driver2/CustomPoint>"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594333.8139567,
+        "age_seconds": 2.080482006072998,
+        "timebase": 1792594333813956709,
+        "point_num": 9984,
+        "lidar_id": 192,
+        "actual_points": 9984,
+        "sample_points": [
+          {
+            "offset_time": 0,
+            "x": -2.752000093460083,
+            "y": 0.9070000052452087,
+            "z": 0.3779999911785126,
+            "reflectivity": 28,
+            "tag": 0,
+            "line": 0
+          },
+          {
+            "offset_time": 4947,
+            "x": -2.740999937057495,
+            "y": 0.8799999952316284,
+            "z": 0.45500001311302185,
+            "reflectivity": 26,
+            "tag": 0,
+            "line": 1
+          },
+          {
+            "offset_time": 9894,
+            "x": -2.6080000400543213,
+            "y": 0.8180000185966492,
+            "z": 0.5049999952316284,
+            "reflectivity": 14,
+            "tag": 0,
+            "line": 2
+          }
+        ],
+        "offset_time_min_max": [
+          0,
+          50165901
+        ],
+        "tags": {
+          "0": 8698,
+          "2": 60,
+          "1": 54,
+          "16": 832,
+          "32": 335,
+          "4": 5
+        },
+        "lines": {
+          "0": 2496,
+          "1": 2496,
+          "2": 2496,
+          "3": 2496
+        },
+        "finite_xyz": 9984
+      }
+    },
+    "/livox/imu": {
+      "exists": true,
+      "type": "sensor_msgs/msg/Imu",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f312313599ab800000000000012030000000000000000": "/livox_ros_driver2"
+      },
+      "duration_seconds": 3.000857807999978,
+      "count": 601,
+      "received_rate_hz": 200.06668355941002,
+      "counts_by_gid": {
+        "010f312313599ab800000000000012030000000000000000": 601
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0038653930000691616,
+        0.006100911999965319
+      ],
+      "first_header_stamp": 1792594335.9042768,
+      "last_header_stamp": 1792594338.9034026,
+      "unique_header_stamps": 601,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 200.05830238619248,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "orientation": "geometry_msgs/Quaternion",
+          "orientation_covariance": "double[9]",
+          "angular_velocity": "geometry_msgs/Vector3",
+          "angular_velocity_covariance": "double[9]",
+          "linear_acceleration": "geometry_msgs/Vector3",
+          "linear_acceleration_covariance": "double[9]"
+        },
+        "frame_id": "livox_frame",
+        "stamp": 1792594338.9034026,
+        "age_seconds": 0.00021409988403320312,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594338,
+              "nanosec": 903402562
+            },
+            "frame_id": "livox_frame"
+          },
+          "orientation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "orientation_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_velocity": {
+            "x": 0.0023455051705241203,
+            "y": 0.0028059291653335094,
+            "z": -0.014359265565872192
+          },
+          "angular_velocity_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linear_acceleration": {
+            "x": 0.010016935877501965,
+            "y": 0.7105583548545837,
+            "z": 0.6785903573036194
+          },
+          "linear_acceleration_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "orientation": "geometry_msgs/Quaternion",
+          "orientation_covariance": "double[9]",
+          "angular_velocity": "geometry_msgs/Vector3",
+          "angular_velocity_covariance": "double[9]",
+          "linear_acceleration": "geometry_msgs/Vector3",
+          "linear_acceleration_covariance": "double[9]"
+        },
+        "frame_id": "livox_frame",
+        "stamp": 1792594335.9042768,
+        "age_seconds": 2.9994056224823,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594335,
+              "nanosec": 904276795
+            },
+            "frame_id": "livox_frame"
+          },
+          "orientation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          },
+          "orientation_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_velocity": {
+            "x": 0.0002149762585759163,
+            "y": 0.0028059291653335094,
+            "z": -0.011163465678691864
+          },
+          "angular_velocity_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linear_acceleration": {
+            "x": 0.005866545252501965,
+            "y": 0.7108024954795837,
+            "z": 0.6859145760536194
+          },
+          "linear_acceleration_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "/serial/gimbal_joint_state": {
+      "exists": true,
+      "type": "sensor_msgs/msg/JointState",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f103e2052a93b00000000000012030000000000000000": "/serial_node_cpp"
+      },
+      "duration_seconds": 3.0000821689999384,
+      "count": 3001,
+      "received_rate_hz": 1000.2441926154996,
+      "counts_by_gid": {
+        "010f103e2052a93b00000000000012030000000000000000": 3001
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0007355440000083036,
+        0.0012749039999562228
+      ],
+      "first_header_stamp": 1792594338.9059286,
+      "last_header_stamp": 1792594341.905329,
+      "unique_header_stamps": 3001,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 1000.199914199846,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "name": "sequence<string>",
+          "position": "sequence<double>",
+          "velocity": "sequence<double>",
+          "effort": "sequence<double>"
+        },
+        "frame_id": "",
+        "stamp": 1792594341.905329,
+        "age_seconds": 0.0006563663482666016,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594341,
+              "nanosec": 905328965
+            },
+            "frame_id": ""
+          },
+          "name": [
+            "gimbal_pitch_joint",
+            "gimbal_yaw_joint",
+            "gimbal_pitch_odom_joint",
+            "gimbal_yaw_odom_joint"
+          ],
+          "position": [
+            0.0,
+            -0.6005535125732422,
+            0.0,
+            0.0
+          ],
+          "velocity": [],
+          "effort": []
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "name": "sequence<string>",
+          "position": "sequence<double>",
+          "velocity": "sequence<double>",
+          "effort": "sequence<double>"
+        },
+        "frame_id": "",
+        "stamp": 1792594338.9059286,
+        "age_seconds": 3.00007963180542,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594338,
+              "nanosec": 905928606
+            },
+            "frame_id": ""
+          },
+          "name": [
+            "gimbal_pitch_joint",
+            "gimbal_yaw_joint",
+            "gimbal_pitch_odom_joint",
+            "gimbal_yaw_odom_joint"
+          ],
+          "position": [
+            0.0,
+            -0.6005535125732422,
+            0.0,
+            0.0
+          ],
+          "velocity": [],
+          "effort": []
+        }
+      }
+    },
+    "/serial/imu": {
+      "exists": true,
+      "type": "sensor_msgs/msg/Imu",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f103e2052a93b00000000000013030000000000000000": "/serial_node_cpp"
+      },
+      "duration_seconds": 3.0004595710000785,
+      "count": 3001,
+      "received_rate_hz": 1000.2209828226073,
+      "counts_by_gid": {
+        "010f103e2052a93b00000000000013030000000000000000": 3001
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0007208459999219485,
+        0.0012954269999454482
+      ],
+      "first_header_stamp": 1792594341.908332,
+      "last_header_stamp": 1792594344.907731,
+      "unique_header_stamps": 3001,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 1000.2003912279038,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "orientation": "geometry_msgs/Quaternion",
+          "orientation_covariance": "double[9]",
+          "angular_velocity": "geometry_msgs/Vector3",
+          "angular_velocity_covariance": "double[9]",
+          "linear_acceleration": "geometry_msgs/Vector3",
+          "linear_acceleration_covariance": "double[9]"
+        },
+        "frame_id": "gimbal_pitch_odom",
+        "stamp": 1792594344.907731,
+        "age_seconds": 0.0006694793701171875,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594344,
+              "nanosec": 907731060
+            },
+            "frame_id": "gimbal_pitch_odom"
+          },
+          "orientation": {
+            "x": -0.014747846827993228,
+            "y": -0.3075523654863367,
+            "z": -0.09446817039139807,
+            "w": 0.9467152730787638
+          },
+          "orientation_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_velocity": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "angular_velocity_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linear_acceleration": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "linear_acceleration_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "orientation": "geometry_msgs/Quaternion",
+          "orientation_covariance": "double[9]",
+          "angular_velocity": "geometry_msgs/Vector3",
+          "angular_velocity_covariance": "double[9]",
+          "linear_acceleration": "geometry_msgs/Vector3",
+          "linear_acceleration_covariance": "double[9]"
+        },
+        "frame_id": "gimbal_pitch_odom",
+        "stamp": 1792594341.908332,
+        "age_seconds": 3.0001332759857178,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594341,
+              "nanosec": 908332004
+            },
+            "frame_id": "gimbal_pitch_odom"
+          },
+          "orientation": {
+            "x": -0.014732502798511068,
+            "y": -0.30750541864428094,
+            "z": -0.09458645639731175,
+            "w": 0.9467189515013931
+          },
+          "orientation_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "angular_velocity": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "angular_velocity_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linear_acceleration": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "linear_acceleration_covariance": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "/joint_states": {
+      "exists": true,
+      "type": "sensor_msgs/msg/JointState",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31230f59567f00000000000012030000000000000000": "/joint_state_publisher"
+      },
+      "duration_seconds": 3.0186758999999483,
+      "count": 30,
+      "received_rate_hz": 10.000882533051882,
+      "counts_by_gid": {
+        "010f31230f59567f00000000000012030000000000000000": 30
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.09970916700001453,
+        0.10038600299992595
+      ],
+      "first_header_stamp": 1792594345.0085626,
+      "last_header_stamp": 1792594347.9085176,
+      "unique_header_stamps": 30,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 10.00015505669394,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "name": "sequence<string>",
+          "position": "sequence<double>",
+          "velocity": "sequence<double>",
+          "effort": "sequence<double>"
+        },
+        "frame_id": "",
+        "stamp": 1792594347.9085176,
+        "age_seconds": 0.02049875259399414,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594347,
+              "nanosec": 908517535
+            },
+            "frame_id": ""
+          },
+          "name": [
+            "front_left_wheel_joint",
+            "front_right_wheel_joint",
+            "rear_left_wheel_joint",
+            "rear_right_wheel_joint",
+            "gimbal_yaw_joint",
+            "gimbal_pitch_joint"
+          ],
+          "position": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "velocity": [],
+          "effort": []
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "name": "sequence<string>",
+          "position": "sequence<double>",
+          "velocity": "sequence<double>",
+          "effort": "sequence<double>"
+        },
+        "frame_id": "",
+        "stamp": 1792594345.0085626,
+        "age_seconds": 2.920482873916626,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594345,
+              "nanosec": 8562662
+            },
+            "frame_id": ""
+          },
+          "name": [
+            "front_left_wheel_joint",
+            "front_right_wheel_joint",
+            "rear_left_wheel_joint",
+            "rear_right_wheel_joint",
+            "gimbal_yaw_joint",
+            "gimbal_pitch_joint"
+          ],
+          "position": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "velocity": [],
+          "effort": []
+        }
+      }
+    },
+    "/aft_mapped_to_init": {
+      "exists": true,
+      "type": "nav_msgs/msg/Odometry",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000018030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 3.005920677000063,
+      "count": 1898,
+      "received_rate_hz": 642.1887084634344,
+      "counts_by_gid": {
+        "010f31231f59526500000000000018030000000000000000": 1898
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.00011571300001378404,
+        0.04753854900002352
+      ],
+      "first_header_stamp": 1792594347.9170942,
+      "last_header_stamp": 1792594350.914738,
+      "unique_header_stamps": 1898,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 632.8303774691047,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "camera_init",
+        "stamp": 1792594350.914738,
+        "age_seconds": 0.0292818546295166,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594350,
+              "nanosec": 914737939
+            },
+            "frame_id": "camera_init"
+          },
+          "child_frame_id": "body",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": -0.030341045747043095,
+                "y": -0.006756296905730801,
+                "z": 0.0184140882452504
+              },
+              "orientation": {
+                "x": -0.0037862256609903265,
+                "y": 0.009302621995402303,
+                "z": 0.010643919744756527,
+                "w": 0.9998929106043334
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "angular": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "camera_init",
+        "stamp": 1792594347.9170942,
+        "age_seconds": 3.0270237922668457,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594347,
+              "nanosec": 917094230
+            },
+            "frame_id": "camera_init"
+          },
+          "child_frame_id": "body",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": -0.031996096030983925,
+                "y": -0.006876808749138703,
+                "z": 0.018704960435654592
+              },
+              "orientation": {
+                "x": -0.003445693021630218,
+                "y": 0.009445698939437005,
+                "z": 0.010386598214505674,
+                "w": 0.9998955068075241
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "angular": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "/cloud_registered": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000014030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 2.017788405000033,
+      "count": 40,
+      "received_rate_hz": 20.019371380260502,
+      "counts_by_gid": {
+        "010f31231f59526500000000000014030000000000000000": 40
+      },
+      "observed_bytes_per_second": 407115.0364252324,
+      "receive_interval_min_max": [
+        0.04707852800004275,
+        0.05224317099998643
+      ],
+      "first_header_stamp": 1792594350.9644723,
+      "last_header_stamp": 1792594352.9126525,
+      "unique_header_stamps": 40,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 20.018682063720895,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "camera_init",
+        "stamp": 1792594352.9126525,
+        "age_seconds": 0.05086874961853027,
+        "height": 1,
+        "width": 481,
+        "point_step": 48,
+        "row_step": 23088,
+        "is_dense": true,
+        "data_bytes": 23088,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            1.6075925827026367,
+            1.0235779285430908,
+            2.442622661590576,
+            53.0
+          ],
+          [
+            1.473676323890686,
+            1.1229344606399536,
+            2.347306728363037,
+            60.0
+          ],
+          [
+            1.3394083976745605,
+            1.2153619527816772,
+            2.260730504989624,
+            44.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 481,
+            "min": -3.1419169902801514,
+            "max": 7.190973281860352,
+            "mean": -0.2601957619190216
+          },
+          "y": {
+            "finite": 481,
+            "min": -1.1629241704940796,
+            "max": 3.497014045715332,
+            "mean": 0.7431556582450867
+          },
+          "z": {
+            "finite": 481,
+            "min": -0.26258254051208496,
+            "max": 2.9810163974761963,
+            "mean": 1.0711826086044312
+          },
+          "intensity": {
+            "finite": 481,
+            "min": 0.0,
+            "max": 150.0,
+            "mean": 38.83469009399414
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "camera_init",
+        "stamp": 1792594350.9644723,
+        "age_seconds": 1.9997694492340088,
+        "height": 1,
+        "width": 520,
+        "point_step": 48,
+        "row_step": 24960,
+        "is_dense": true,
+        "data_bytes": 24960,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -1.13279128074646,
+            1.6154048442840576,
+            1.859721302986145,
+            94.0
+          ],
+          [
+            -1.3198280334472656,
+            1.5637449026107788,
+            1.9115676879882812,
+            79.0
+          ],
+          [
+            -1.8335907459259033,
+            1.376070261001587,
+            2.0975544452667236,
+            66.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 520,
+            "min": -3.1010901927948,
+            "max": 7.434054374694824,
+            "mean": -0.1626819223165512
+          },
+          "y": {
+            "finite": 520,
+            "min": -1.1776500940322876,
+            "max": 3.4121007919311523,
+            "mean": 0.7767037153244019
+          },
+          "z": {
+            "finite": 520,
+            "min": -0.017156319692730904,
+            "max": 3.1254265308380127,
+            "mean": 1.3245266675949097
+          },
+          "intensity": {
+            "finite": 520,
+            "min": 0.0,
+            "max": 150.0,
+            "mean": 40.5673828125
+          }
+        }
+      }
+    },
+    "/lidar_odometry": {
+      "exists": true,
+      "type": "nav_msgs/msg/Odometry",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231559acdd0000000000001f030000000000000000": "/loam_interface"
+      },
+      "duration_seconds": 3.001933079000082,
+      "count": 1945,
+      "received_rate_hz": 648.3208548554849,
+      "counts_by_gid": {
+        "010f31231559acdd0000000000001f030000000000000000": 1945
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.00011673999995309714,
+        0.048221286999933
+      ],
+      "first_header_stamp": 1792594352.9164345,
+      "last_header_stamp": 1792594355.915727,
+      "unique_header_stamps": 1945,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 648.1528833514681,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594355.915727,
+        "age_seconds": 0.05262327194213867,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594355,
+              "nanosec": 915726900
+            },
+            "frame_id": "odom"
+          },
+          "child_frame_id": "front_mid360",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": 0.02300734088741225,
+                "y": 0.13346954251858822,
+                "z": 0.37814245417509046
+              },
+              "orientation": {
+                "x": -0.0051142382007500565,
+                "y": 0.3793409159694453,
+                "z": 0.9251229016450806,
+                "w": -0.014897345094837852
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "angular": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594352.9164345,
+        "age_seconds": 3.0520100593566895,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594352,
+              "nanosec": 916434526
+            },
+            "frame_id": "odom"
+          },
+          "child_frame_id": "front_mid360",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": 0.02476656533544652,
+                "y": 0.12447110752027657,
+                "z": 0.37537566834378316
+              },
+              "orientation": {
+                "x": -0.004881412159314241,
+                "y": 0.37994178306189047,
+                "z": 0.9248895190811915,
+                "w": -0.01413473709852302
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "angular": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "/registered_scan": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231559acdd0000000000001e030000000000000000": "/loam_interface"
+      },
+      "duration_seconds": 2.0032395079999787,
+      "count": 41,
+      "received_rate_hz": 20.000583757038026,
+      "counts_by_gid": {
+        "010f31231559acdd0000000000001e030000000000000000": 41
+      },
+      "observed_bytes_per_second": 425095.44994457497,
+      "receive_interval_min_max": [
+        0.0472074069999735,
+        0.05211067400000502
+      ],
+      "first_header_stamp": 1792594355.9640677,
+      "last_header_stamp": 1792594357.9654577,
+      "unique_header_stamps": 41,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 19.986109850355675,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594357.9654577,
+        "age_seconds": 0.007692098617553711,
+        "height": 1,
+        "width": 521,
+        "point_step": 48,
+        "row_step": 25008,
+        "is_dense": true,
+        "data_bytes": 25008,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            1.8664569854736328,
+            -0.6174118518829346,
+            0.8719061613082886,
+            11.0
+          ],
+          [
+            2.942685842514038,
+            -0.9586214423179626,
+            1.0384564399719238,
+            21.0
+          ],
+          [
+            1.8666266202926636,
+            -0.4624671936035156,
+            0.7275501489639282,
+            8.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 521,
+            "min": -8.02977180480957,
+            "max": 3.144056558609009,
+            "mean": 0.2968466877937317
+          },
+          "y": {
+            "finite": 521,
+            "min": -2.389174699783325,
+            "max": 2.652965545654297,
+            "mean": 0.4318661093711853
+          },
+          "z": {
+            "finite": 521,
+            "min": 0.014767557382583618,
+            "max": 2.9352400302886963,
+            "mean": 1.7870415449142456
+          },
+          "intensity": {
+            "finite": 521,
+            "min": 0.0,
+            "max": 150.0,
+            "mean": 39.10340118408203
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594355.9640677,
+        "age_seconds": 2.009258985519409,
+        "height": 1,
+        "width": 502,
+        "point_step": 48,
+        "row_step": 24096,
+        "is_dense": true,
+        "data_bytes": 24096,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            1.2903826236724854,
+            0.35663217306137085,
+            2.8262131214141846,
+            82.5
+          ],
+          [
+            1.8539806604385376,
+            0.6485780477523804,
+            2.8225157260894775,
+            61.0
+          ],
+          [
+            2.150937795639038,
+            0.8468024730682373,
+            2.8303236961364746,
+            46.5
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 502,
+            "min": -6.196393966674805,
+            "max": 3.184835195541382,
+            "mean": 0.17135699093341827
+          },
+          "y": {
+            "finite": 502,
+            "min": -2.429797649383545,
+            "max": 2.490272283554077,
+            "mean": 0.4407167136669159
+          },
+          "z": {
+            "finite": 502,
+            "min": 0.013983666896820068,
+            "max": 3.0098068714141846,
+            "mean": 1.8424330949783325
+          },
+          "intensity": {
+            "finite": 502,
+            "min": 0.0,
+            "max": 154.0,
+            "mean": 42.27112579345703
+          }
+        }
+      }
+    },
+    "/odometry": {
+      "exists": true,
+      "type": "nav_msgs/msg/Odometry",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231559acdd00000000000037030000000000000000": "/sensor_scan_generation"
+      },
+      "duration_seconds": 3.0037974329999315,
+      "count": 57,
+      "received_rate_hz": 19.313932823506224,
+      "counts_by_gid": {
+        "010f31231559acdd00000000000037030000000000000000": 57
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.00017890100002659892,
+        0.10935475300004782
+      ],
+      "first_header_stamp": 1792594357.9140167,
+      "last_header_stamp": 1792594360.8650503,
+      "unique_header_stamps": 57,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 18.976402080802536,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594360.8650503,
+        "age_seconds": 0.11360669136047363,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594360,
+              "nanosec": 865050315
+            },
+            "frame_id": "odom"
+          },
+          "child_frame_id": "gimbal_yaw",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": 0.035349502347897674,
+                "y": 0.01864915635707759,
+                "z": 0.27815503192728713
+              },
+              "orientation": {
+                "x": 0.003014849055300174,
+                "y": 0.0012234796783131955,
+                "z": 0.014741103872944224,
+                "w": 0.9998860503273649
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 2.5470144970628774,
+                "y": 8.939534701011286,
+                "z": -5.4535128831929525
+              },
+              "angular": {
+                "x": 2.0370121828645447,
+                "y": 1.3275868980594991,
+                "z": 2.3149300350687723
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "child_frame_id": "string",
+          "pose": "geometry_msgs/PoseWithCovariance",
+          "twist": "geometry_msgs/TwistWithCovariance"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594357.9140167,
+        "age_seconds": 3.064754009246826,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594357,
+              "nanosec": 914016723
+            },
+            "frame_id": "odom"
+          },
+          "child_frame_id": "gimbal_yaw",
+          "pose": {
+            "pose": {
+              "position": {
+                "x": 0.03415008051254211,
+                "y": 0.02338385319857189,
+                "z": 0.28072773361344217
+              },
+              "orientation": {
+                "x": 0.003662846654671198,
+                "y": 0.0009582981569282,
+                "z": 0.014480093788721051,
+                "w": 0.9998879897783035
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "twist": {
+            "twist": {
+              "linear": {
+                "x": 0.00032629155287918523,
+                "y": -0.06736807487806139,
+                "z": 0.003355092233119735
+              },
+              "angular": {
+                "x": 0.009611047163215251,
+                "y": 0.0020635436179737834,
+                "z": -0.006788322739480091
+              }
+            },
+            "covariance": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "/sensor_scan": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231559acdd00000000000036030000000000000000": "/sensor_scan_generation"
+      },
+      "duration_seconds": 2.018905571999994,
+      "count": 37,
+      "received_rate_hz": 18.94810061555173,
+      "counts_by_gid": {
+        "010f31231559acdd00000000000036030000000000000000": 37
+      },
+      "observed_bytes_per_second": 370989.1192474267,
+      "receive_interval_min_max": [
+        0.00015880299997661496,
+        0.10589626499995575
+      ],
+      "first_header_stamp": 1792594360.9149532,
+      "last_header_stamp": 1792594362.864622,
+      "unique_header_stamps": 37,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 18.46467381734084,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594362.864622,
+        "age_seconds": 0.1345059871673584,
+        "height": 1,
+        "width": 503,
+        "point_step": 48,
+        "row_step": 24144,
+        "is_dense": true,
+        "data_bytes": 24144,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -2.6533145904541016,
+            0.7958865165710449,
+            -0.2511313557624817,
+            46.0
+          ],
+          [
+            -2.1133382320404053,
+            0.4642394185066223,
+            -0.18974779546260834,
+            22.5
+          ],
+          [
+            -2.0871989727020264,
+            0.24770526587963104,
+            -0.18611547350883484,
+            24.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 503,
+            "min": -3.0668978691101074,
+            "max": 7.973977088928223,
+            "mean": -0.27243420481681824
+          },
+          "y": {
+            "finite": 503,
+            "min": -1.254443645477295,
+            "max": 3.4059834480285645,
+            "mean": 0.7198026776313782
+          },
+          "z": {
+            "finite": 503,
+            "min": -0.2511313557624817,
+            "max": 3.0664122104644775,
+            "mean": 1.2074209451675415
+          },
+          "intensity": {
+            "finite": 503,
+            "min": 0.0,
+            "max": 150.0,
+            "mean": 39.558555603027344
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594360.9149532,
+        "age_seconds": 2.0843658447265625,
+        "height": 1,
+        "width": 437,
+        "point_step": 48,
+        "row_step": 20976,
+        "is_dense": true,
+        "data_bytes": 20976,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 32,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_x",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_y",
+            "offset": 20,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "normal_z",
+            "offset": 24,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "curvature",
+            "offset": 36,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -1.8846721649169922,
+            -0.2159227728843689,
+            -0.17534199357032776,
+            20.0
+          ],
+          [
+            -1.8164516687393188,
+            -0.2991064786911011,
+            -0.1665678173303604,
+            32.0
+          ],
+          [
+            -1.4094126224517822,
+            -0.3789196014404297,
+            -0.11868593096733093,
+            8.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 437,
+            "min": -3.0866053104400635,
+            "max": 8.214659690856934,
+            "mean": -0.4257945120334625
+          },
+          "y": {
+            "finite": 437,
+            "min": -1.1754471063613892,
+            "max": 3.3157382011413574,
+            "mean": 0.8381122946739197
+          },
+          "z": {
+            "finite": 437,
+            "min": -0.2698978781700134,
+            "max": 2.967599630355835,
+            "mean": 0.9945410490036011
+          },
+          "intensity": {
+            "finite": 437,
+            "min": 0.0,
+            "max": 146.0,
+            "mean": 39.08747863769531
+          }
+        }
+      }
+    },
+    "/terrain_map": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31232359714e00000000000016030000000000000000": "/terrain_analysis"
+      },
+      "duration_seconds": 2.0002177989999836,
+      "count": 40,
+      "received_rate_hz": 19.99957955755667,
+      "counts_by_gid": {
+        "010f31232359714e00000000000016030000000000000000": 40
+      },
+      "observed_bytes_per_second": 515863.82268764544,
+      "receive_interval_min_max": [
+        0.049514092000094934,
+        0.05072179400008281
+      ],
+      "first_header_stamp": 1792594363.013212,
+      "last_header_stamp": 1792594364.9642208,
+      "unique_header_stamps": 40,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 19.989658717135413,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594364.9642208,
+        "age_seconds": 0.03683161735534668,
+        "height": 1,
+        "width": 901,
+        "point_step": 32,
+        "row_step": 28832,
+        "is_dense": true,
+        "data_bytes": 28832,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -3.234055519104004,
+            0.9045835733413696,
+            0.29981136322021484,
+            0.1428348422050476
+          ],
+          [
+            -3.1926872730255127,
+            1.1105003356933594,
+            0.32442861795425415,
+            0.0
+          ],
+          [
+            -3.216323137283325,
+            0.8470554351806641,
+            0.3661556839942932,
+            0.20917916297912598
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 901,
+            "min": -3.2390618324279785,
+            "max": 2.5230162143707275,
+            "mean": 0.4118536412715912
+          },
+          "y": {
+            "finite": 901,
+            "min": -0.5574369430541992,
+            "max": 1.6104685068130493,
+            "mean": 0.7648454308509827
+          },
+          "z": {
+            "finite": 901,
+            "min": 0.01650223135948181,
+            "max": 0.8237491846084595,
+            "mean": 0.25530338287353516
+          },
+          "intensity": {
+            "finite": 901,
+            "min": 0.0,
+            "max": 0.49962833523750305,
+            "mean": 0.16337184607982635
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594363.013212,
+        "age_seconds": 1.9880139827728271,
+        "height": 1,
+        "width": 845,
+        "point_step": 32,
+        "row_step": 27040,
+        "is_dense": true,
+        "data_bytes": 27040,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -3.1900808811187744,
+            1.1069358587265015,
+            0.2976071834564209,
+            0.004866361618041992
+          ],
+          [
+            -3.1013357639312744,
+            1.1557472944259644,
+            0.2927408218383789,
+            0.0
+          ],
+          [
+            -3.2200257778167725,
+            1.1073848009109497,
+            0.330618292093277,
+            0.03787747025489807
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 845,
+            "min": -3.4623873233795166,
+            "max": 2.4990835189819336,
+            "mean": 0.31140825152397156
+          },
+          "y": {
+            "finite": 845,
+            "min": -0.37181320786476135,
+            "max": 1.8115142583847046,
+            "mean": 0.7894192934036255
+          },
+          "z": {
+            "finite": 845,
+            "min": 0.017638027667999268,
+            "max": 0.845608651638031,
+            "mean": 0.25275281071662903
+          },
+          "intensity": {
+            "finite": 845,
+            "min": 0.0,
+            "max": 0.49786120653152466,
+            "mean": 0.17075367271900177
+          }
+        }
+      }
+    },
+    "/terrain_map_ext": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31232559d05400000000000017030000000000000000": "/terrain_analysis_ext"
+      },
+      "duration_seconds": 2.0135878390000244,
+      "count": 40,
+      "received_rate_hz": 20.00155291031112,
+      "counts_by_gid": {
+        "010f31232559d05400000000000017030000000000000000": 40
+      },
+      "observed_bytes_per_second": 582538.2818077229,
+      "receive_interval_min_max": [
+        0.04969156599997859,
+        0.05032418600001165
+      ],
+      "first_header_stamp": 1792594365.0143204,
+      "last_header_stamp": 1792594366.9641778,
+      "unique_header_stamps": 40,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 20.0014619184072,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594366.9641778,
+        "age_seconds": 0.05203866958618164,
+        "height": 1,
+        "width": 708,
+        "point_step": 32,
+        "row_step": 22656,
+        "is_dense": true,
+        "data_bytes": 22656,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -7.13972806930542,
+            1.3518964052200317,
+            1.5925884246826172,
+            0.0
+          ],
+          [
+            -7.200071811676025,
+            1.3050787448883057,
+            1.7611806392669678,
+            0.16859221458435059
+          ],
+          [
+            -7.795415878295898,
+            1.2010471820831299,
+            1.9644851684570312,
+            0.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 708,
+            "min": -7.795415878295898,
+            "max": 2.764214515686035,
+            "mean": -0.2632012367248535
+          },
+          "y": {
+            "finite": 708,
+            "min": -0.7533916234970093,
+            "max": 1.9527233839035034,
+            "mean": 0.7242484092712402
+          },
+          "z": {
+            "finite": 708,
+            "min": 0.017103493213653564,
+            "max": 2.2336041927337646,
+            "mean": 0.36507946252822876
+          },
+          "intensity": {
+            "finite": 708,
+            "min": 0.0,
+            "max": 0.6410157680511475,
+            "mean": 0.14471624791622162
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "odom",
+        "stamp": 1792594365.0143204,
+        "age_seconds": 2.00228214263916,
+        "height": 1,
+        "width": 956,
+        "point_step": 32,
+        "row_step": 30592,
+        "is_dense": true,
+        "data_bytes": 30592,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 16,
+            "datatype": 7,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            -7.822604656219482,
+            1.3241841793060303,
+            1.817476511001587,
+            0.04651951789855957
+          ],
+          [
+            -7.8382792472839355,
+            1.3586422204971313,
+            1.7709569931030273,
+            0.0
+          ],
+          [
+            -7.202242851257324,
+            1.3113454580307007,
+            1.5635762214660645,
+            0.0
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 956,
+            "min": -7.8382792472839355,
+            "max": 2.5230162143707275,
+            "mean": 0.11368991434574127
+          },
+          "y": {
+            "finite": 956,
+            "min": -0.5574369430541992,
+            "max": 1.6713422536849976,
+            "mean": 0.801005482673645
+          },
+          "z": {
+            "finite": 956,
+            "min": 0.01650223135948181,
+            "max": 2.23238468170166,
+            "mean": 0.3267658054828644
+          },
+          "intensity": {
+            "finite": 956,
+            "min": 0.0,
+            "max": 0.6688084602355957,
+            "mean": 0.16723473370075226
+          }
+        }
+      }
+    },
+    "/obstacle_scan": {
+      "exists": true,
+      "type": "sensor_msgs/msg/LaserScan",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231b59ac0300000000000012030000000000000000": "/pointcloud_to_laserscan"
+      },
+      "duration_seconds": 3.0015489269999307,
+      "count": 61,
+      "received_rate_hz": 20.6788042622329,
+      "counts_by_gid": {
+        "010f31231b59ac0300000000000012030000000000000000": 61
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.0006896740000001955,
+        0.10937962499997411
+      ],
+      "first_header_stamp": 1792594366.9641778,
+      "last_header_stamp": 1792594369.9641414,
+      "unique_header_stamps": 61,
+      "header_stamp_monotonic": false,
+      "header_rate_hz": 20.000243189907714,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "angle_min": "float",
+          "angle_max": "float",
+          "angle_increment": "float",
+          "time_increment": "float",
+          "scan_time": "float",
+          "range_min": "float",
+          "range_max": "float",
+          "ranges": "sequence<float>",
+          "intensities": "sequence<float>"
+        },
+        "frame_id": "base_footprint",
+        "stamp": 1792594369.9641414,
+        "age_seconds": 0.05581259727478027,
+        "angle_min": -3.141592502593994,
+        "angle_max": 3.141592502593994,
+        "angle_increment": 0.008726649917662144,
+        "time_increment": 0.0,
+        "scan_time": 0.05000000074505806,
+        "range_min": 0.30000001192092896,
+        "range_max": 10.0,
+        "ranges_count": 720,
+        "finite_ranges": 193,
+        "inf_ranges": 527,
+        "nan_ranges": 0,
+        "min_finite": 0.5465378165245056,
+        "max_finite": 7.930828094482422,
+        "intensities_count": 0
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "angle_min": "float",
+          "angle_max": "float",
+          "angle_increment": "float",
+          "time_increment": "float",
+          "scan_time": "float",
+          "range_min": "float",
+          "range_max": "float",
+          "ranges": "sequence<float>",
+          "intensities": "sequence<float>"
+        },
+        "frame_id": "base_footprint",
+        "stamp": 1792594366.9641778,
+        "age_seconds": 3.0562069416046143,
+        "angle_min": -3.141592502593994,
+        "angle_max": 3.141592502593994,
+        "angle_increment": 0.008726649917662144,
+        "time_increment": 0.0,
+        "scan_time": 0.05000000074505806,
+        "range_min": 0.30000001192092896,
+        "range_max": 10.0,
+        "ranges_count": 720,
+        "finite_ranges": 175,
+        "inf_ranges": 545,
+        "nan_ranges": 0,
+        "min_finite": 0.5276721119880676,
+        "max_finite": 4.675846099853516,
+        "intensities_count": 0
+      }
+    },
+    "/map": {
+      "exists": true,
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231d593c410000010000001a030000000000000000": "/slam_toolbox"
+      },
+      "duration_seconds": 4.012648955999907,
+      "count": 8,
+      "received_rate_hz": 2.000048421172261,
+      "counts_by_gid": {
+        "010f31231d593c410000010000001a030000000000000000": 8
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.49987007300001096,
+        0.5001396740000246
+      ],
+      "first_header_stamp": 1792594370.0640469,
+      "last_header_stamp": 1792594373.5645602,
+      "unique_header_stamps": 8,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 1.9997067200409857,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "info": "nav_msgs/MapMetaData",
+          "data": "sequence<int8>"
+        },
+        "frame_id": "map",
+        "stamp": 1792594373.5645602,
+        "age_seconds": 0.47002148628234863,
+        "info": {
+          "map_load_time": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "resolution": 0.05000000074505806,
+          "width": 63,
+          "height": 21,
+          "origin": {
+            "position": {
+              "x": -0.974247010924249,
+              "y": -0.024122842232304334,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        },
+        "cells": {
+          "-1": 1266,
+          "0": 51,
+          "100": 6
+        },
+        "data_sha256": "689f7f48166f71ce2845dcf3543e64f3e1ed9e4313c668afd97dc0ca214569a9"
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "info": "nav_msgs/MapMetaData",
+          "data": "sequence<int8>"
+        },
+        "frame_id": "map",
+        "stamp": 1792594370.0640469,
+        "age_seconds": 3.970682382583618,
+        "info": {
+          "map_load_time": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "resolution": 0.05000000074505806,
+          "width": 63,
+          "height": 21,
+          "origin": {
+            "position": {
+              "x": -0.974247010924249,
+              "y": -0.024122842232304334,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        },
+        "cells": {
+          "-1": 1266,
+          "0": 51,
+          "100": 6
+        },
+        "data_sha256": "689f7f48166f71ce2845dcf3543e64f3e1ed9e4313c668afd97dc0ca214569a9"
+      },
+      "map_hash_counts": {
+        "689f7f48166f71ce2845dcf3543e64f3e1ed9e4313c668afd97dc0ca214569a9": 8
+      }
+    },
+    "/livox/lidar/pointcloud": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f312313599ab800000000000014030000000000000000": "/livox_ros_driver2"
+      },
+      "duration_seconds": 2.018329929999936,
+      "count": 40,
+      "received_rate_hz": 20.00477500642913,
+      "counts_by_gid": {
+        "010f312313599ab800000000000014030000000000000000": 40
+      },
+      "observed_bytes_per_second": 5153187.219495045,
+      "receive_interval_min_max": [
+        0.04968414299992219,
+        0.050285185000007004
+      ],
+      "first_header_stamp": 1792594374.0142605,
+      "last_header_stamp": 1792594375.9638276,
+      "unique_header_stamps": 40,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 20.004441195796492,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594375.9638276,
+        "age_seconds": 0.09077167510986328,
+        "height": 1,
+        "width": 10080,
+        "point_step": 26,
+        "row_step": 262080,
+        "is_dense": true,
+        "data_bytes": 262080,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 12,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "tag",
+            "offset": 16,
+            "datatype": 2,
+            "count": 1
+          },
+          {
+            "name": "line",
+            "offset": 17,
+            "datatype": 2,
+            "count": 1
+          },
+          {
+            "name": "timestamp",
+            "offset": 18,
+            "datatype": 8,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.7925943759638277e+18
+          ],
+          [
+            0.34700000286102295,
+            -0.5120000243186951,
+            -0.007000000216066837,
+            7.0,
+            1.7925943759638326e+18
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.7925943759638374e+18
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 10080,
+            "min": -3.1700000762939453,
+            "max": 8.241000175476074,
+            "mean": -0.1849779760394807
+          },
+          "y": {
+            "finite": 10080,
+            "min": -1.3639999628067017,
+            "max": 3.740000009536743,
+            "mean": 0.33161249991759495
+          },
+          "z": {
+            "finite": 10080,
+            "min": -0.5559999942779541,
+            "max": 3.0759999752044678,
+            "mean": 0.4783360118810032
+          },
+          "intensity": {
+            "finite": 10080,
+            "min": 0.0,
+            "max": 159.0,
+            "mean": 20.257738095238096
+          },
+          "timestamp": {
+            "finite": 10080,
+            "min": 1.7925943759638277e+18,
+            "max": 1.7925943760140572e+18,
+            "mean": 1.7925943759889505e+18
+          }
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "height": "uint32",
+          "width": "uint32",
+          "fields": "sequence<sensor_msgs/PointField>",
+          "is_bigendian": "boolean",
+          "point_step": "uint32",
+          "row_step": "uint32",
+          "data": "sequence<uint8>",
+          "is_dense": "boolean"
+        },
+        "frame_id": "front_mid360",
+        "stamp": 1792594374.0142605,
+        "age_seconds": 2.0406954288482666,
+        "height": 1,
+        "width": 9888,
+        "point_step": 26,
+        "row_step": 257088,
+        "is_dense": true,
+        "data_bytes": 257088,
+        "point_fields": [
+          {
+            "name": "x",
+            "offset": 0,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "y",
+            "offset": 4,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "z",
+            "offset": 8,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "intensity",
+            "offset": 12,
+            "datatype": 7,
+            "count": 1
+          },
+          {
+            "name": "tag",
+            "offset": 16,
+            "datatype": 2,
+            "count": 1
+          },
+          {
+            "name": "line",
+            "offset": 17,
+            "datatype": 2,
+            "count": 1
+          },
+          {
+            "name": "timestamp",
+            "offset": 18,
+            "datatype": 8,
+            "count": 1
+          }
+        ],
+        "sample_points": [
+          [
+            0.8799999952316284,
+            -0.5270000100135803,
+            0.19599999487400055,
+            7.0,
+            1.7925943740142605e+18
+          ],
+          [
+            1.159000039100647,
+            -0.703000009059906,
+            0.21899999678134918,
+            1.0,
+            1.7925943740142656e+18
+          ],
+          [
+            1.1720000505447388,
+            -0.7179999947547913,
+            0.18400000035762787,
+            0.0,
+            1.7925943740142705e+18
+          ]
+        ],
+        "stats": {
+          "x": {
+            "finite": 9888,
+            "min": -3.1679999828338623,
+            "max": 8.102999687194824,
+            "mean": -0.28087317938971956
+          },
+          "y": {
+            "finite": 9888,
+            "min": -1.3880000114440918,
+            "max": 3.744999885559082,
+            "mean": 0.24166464408192107
+          },
+          "z": {
+            "finite": 9888,
+            "min": -0.550000011920929,
+            "max": 3.0329999923706055,
+            "mean": 0.1958697412566988
+          },
+          "intensity": {
+            "finite": 9888,
+            "min": 0.0,
+            "max": 164.0,
+            "mean": 13.723503236245955
+          },
+          "timestamp": {
+            "finite": 9888,
+            "min": 1.7925943740142605e+18,
+            "max": 1.7925943740643786e+18,
+            "mean": 1.7925943740390195e+18
+          }
+        }
+      }
+    },
+    "/cloud_registered_body": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000015030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 2.011436687000014,
+      "count": 0,
+      "received_rate_hz": null,
+      "counts_by_gid": {},
+      "observed_bytes_per_second": null
+    },
+    "/cloud_effected": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000016030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 2.0190936760000113,
+      "count": 0,
+      "received_rate_hz": null,
+      "counts_by_gid": {},
+      "observed_bytes_per_second": null
+    },
+    "/Laser_map": {
+      "exists": true,
+      "type": "sensor_msgs/msg/PointCloud2",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000017030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 2.0177802030000294,
+      "count": 0,
+      "received_rate_hz": null,
+      "counts_by_gid": {},
+      "observed_bytes_per_second": null
+    },
+    "/path": {
+      "exists": true,
+      "type": "nav_msgs/msg/Path",
+      "publisher_count": 1,
+      "by_gid": {
+        "010f31231f59526500000000000019030000000000000000": "/point_lio"
+      },
+      "duration_seconds": 3.0003472930000044,
+      "count": 0,
+      "received_rate_hz": null,
+      "counts_by_gid": {},
+      "observed_bytes_per_second": null
+    },
+    "/cloud_clearing": {
+      "exists": true,
+      "publisher_count": 0,
+      "sample_skipped": "no publisher endpoint"
+    },
+    "/map_clearing": {
+      "exists": true,
+      "publisher_count": 0,
+      "sample_skipped": "no publisher endpoint"
+    },
+    "/joy": {
+      "exists": true,
+      "publisher_count": 0,
+      "sample_skipped": "no publisher endpoint"
+    },
+    "/diagnostics": {
+      "exists": true,
+      "type": "diagnostic_msgs/msg/DiagnosticArray",
+      "publisher_count": 2,
+      "by_gid": {
+        "010f31231559acdd00000000000148030000000000000000": "/lifecycle_manager_navigation",
+        "010f3123195924ec00000000000012030000000000000000": "/lifecycle_manager_slam"
+      },
+      "duration_seconds": 3.012695692999955,
+      "count": 6,
+      "received_rate_hz": 2.151928025186415,
+      "counts_by_gid": {
+        "not_available_in_humble_rclpy": 6
+      },
+      "observed_bytes_per_second": null,
+      "receive_interval_min_max": [
+        0.3235149099999717,
+        0.6764521319998948
+      ],
+      "first_header_stamp": 1792594385.162427,
+      "last_header_stamp": 1792594387.485953,
+      "unique_header_stamps": 6,
+      "header_stamp_monotonic": true,
+      "header_rate_hz": 2.1519017605426054,
+      "last_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "status": "sequence<diagnostic_msgs/DiagnosticStatus>"
+        },
+        "frame_id": "",
+        "stamp": 1792594387.485953,
+        "age_seconds": 0.6438593864440918,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594387,
+              "nanosec": 485953104
+            },
+            "frame_id": ""
+          },
+          "status": [
+            {
+              "level": "\u0000",
+              "name": "lifecycle_manager_navigation: Nav2 Health",
+              "message": "Nav2 is active",
+              "hardware_id": "Nav2",
+              "values": []
+            }
+          ]
+        }
+      },
+      "first_message": {
+        "fields": {
+          "header": "std_msgs/Header",
+          "status": "sequence<diagnostic_msgs/DiagnosticStatus>"
+        },
+        "frame_id": "",
+        "stamp": 1792594385.162427,
+        "age_seconds": 2.9674131870269775,
+        "message": {
+          "header": {
+            "stamp": {
+              "sec": 1792594385,
+              "nanosec": 162426924
+            },
+            "frame_id": ""
+          },
+          "status": [
+            {
+              "level": "\u0000",
+              "name": "lifecycle_manager_slam: Nav2 Health",
+              "message": "Nav2 is active",
+              "hardware_id": "Nav2",
+              "values": []
+            }
+          ]
+        }
+      }
+    },
+    "/rosout": {
+      "exists": true,
+      "type": "rcl_interfaces/msg/Log",
+      "publisher_count": 39,
+      "by_gid": {
+        "010f103e2052a93b00000000000003030000000000000000": "/serial_node_cpp",
+        "010f31230f59567f00000000000003030000000000000000": "/joint_state_publisher",
+        "010f31231159453500000000000003030000000000000000": "/robot_state_publisher",
+        "010f312313599ab800000000000003030000000000000000": "/livox_ros_driver2",
+        "010f31231559acdd00000000000003030000000000000000": "/nav2_container",
+        "010f31231559acdd0000000000000b030000000000000000": "/loam_interface",
+        "010f31231559acdd0000000000001a030000000000000000": "/transform_listener_impl_56bc4a17c250",
+        "010f31231559acdd00000000000022030000000000000000": "/sensor_scan_generation",
+        "010f31231559acdd00000000000031030000000000000000": "/transform_listener_impl_56bc4a39f570",
+        "010f31231559acdd0000000000003a030000000000000000": "/fake_vel_transform",
+        "010f31231559acdd0000000000004f030000000000000000": "/controller_server",
+        "010f31231559acdd00000000000069030000000000000000": "/local_costmap/local_costmap",
+        "010f31231559acdd00000000000083030000000000000000": "/smoother_server",
+        "010f31231559acdd0000000000009d030000000000000000": "/planner_server",
+        "010f31231559acdd000000000000b7030000000000000000": "/global_costmap/global_costmap",
+        "010f31231559acdd000000000000d1030000000000000000": "/behavior_server",
+        "010f31231559acdd000000000000eb030000000000000000": "/bt_navigator",
+        "010f31231559acdd00000000000105030000000000000000": "/waypoint_follower",
+        "010f31231559acdd0000000000011f030000000000000000": "/velocity_smoother",
+        "010f31231559acdd00000000000139030000000000000000": "/lifecycle_manager_navigation",
+        "010f31231559acdd00000000000169030000000000000000": "/transform_listener_impl_7093b8001820",
+        "010f31231559acdd0000000000018a030000000000000000": "/transform_listener_impl_7093ac0017f0",
+        "010f31231559acdd00000000000199030000000000000000": "/transform_listener_impl_7093b0001790",
+        "010f31231559acdd000000000001bd030000000000000000": "/transform_listener_impl_7093a40017c0",
+        "010f31231559acdd000000000001f7030000000000000000": "/bt_navigator_navigate_to_pose_rclcpp_node",
+        "010f31231559acdd00000000000217030000000000000000": "/bt_navigator_navigate_through_poses_rclcpp_node",
+        "010f31231759941400000000000003030000000000000000": "/map_saver",
+        "010f3123195924ec00000000000003030000000000000000": "/lifecycle_manager_slam",
+        "010f31231b59ac0300000000000003030000000000000000": "/pointcloud_to_laserscan",
+        "010f31231b59ac0300000000000013030000000000000000": "/transform_listener_impl_5a6389e2b930",
+        "010f31231d593c4100000100000003030000000000000000": "/slam_toolbox",
+        "010f31231d593c4100000100000014030000000000000000": "/transform_listener_impl_56c25c7cf3a0",
+        "010f31231f59526500000000000003030000000000000000": "/point_lio",
+        "010f31232159e90600000000000003030000000000000000": "/static_transform_publisher_map2odom",
+        "010f31232359714e00000000000003030000000000000000": "/terrain_analysis",
+        "010f31232559d05400000000000003030000000000000000": "/terrain_analysis_ext",
+        "010f3123376bf9fe00000000000003030000000000000000": "/codex_slam_readonly_sequential_sample",
+        "010f31234962d72200000000000003030000000000000000": "/_ros2cli_daemon_6_56c46a34a727450ba95b4c76f3dd1a84",
+        "010f3123e858bbb400000000000003030000000000000000": "/launch_ros_22760"
+      },
+      "duration_seconds": 3.0170244559999446,
+      "count": 0,
+      "received_rate_hz": null,
+      "counts_by_gid": {},
+      "observed_bytes_per_second": null
+    }
+  },
+  "end_wall_time": 1792594391.1494527
+}

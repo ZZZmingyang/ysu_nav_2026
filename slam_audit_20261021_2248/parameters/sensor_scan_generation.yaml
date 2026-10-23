@@ -1,0 +1,14 @@
+/sensor_scan_generation:
+  ros__parameters:
+    base_frame: base_footprint
+    lidar_frame: front_mid360
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    qos_overrides./tf.publisher.depth: 100
+    qos_overrides./tf.publisher.durability: volatile
+    qos_overrides./tf.publisher.history: keep_last
+    qos_overrides./tf.publisher.reliability: reliable
+    robot_base_frame: gimbal_yaw
+    use_sim_time: false

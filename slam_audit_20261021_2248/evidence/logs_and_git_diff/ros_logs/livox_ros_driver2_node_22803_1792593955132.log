@@ -1,0 +1,6 @@
+[INFO] [1792593955.155313047] [livox_ros_driver2]: Livox Ros Driver2 Version: 1.2.4
+[INFO] [1792593955.158054046] [livox_ros_driver2]: Data Source is raw lidar.
+[INFO] [1792593955.158085169] [livox_ros_driver2]: Config file : /home/ysu/robomaster/ysu2026_rm_sentry/install/pb2025_nav_bringup/share/pb2025_nav_bringup/config/reality/mid360_user_config.json
+[INFO] [1792593955.161747191] [livox_ros_driver2]: Init lds lidar success!
+[INFO] [1792593958.162014028] [livox_ros_driver2]: livox/imu publish use imu format
+[INFO] [1792593958.164384673] [livox_ros_driver2]: livox/lidar publish use pointcloud2 and custom format

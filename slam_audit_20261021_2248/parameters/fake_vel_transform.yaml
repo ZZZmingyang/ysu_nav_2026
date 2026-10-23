@@ -1,0 +1,19 @@
+/fake_vel_transform:
+  ros__parameters:
+    cmd_spin_topic: cmd_spin
+    fake_robot_base_frame: gimbal_yaw_fake
+    init_spin_speed: 0.0
+    input_cmd_vel_topic: cmd_vel_nav2_result
+    local_plan_topic: local_plan
+    odom_topic: odometry
+    output_cmd_vel_topic: cmd_vel
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    qos_overrides./tf.publisher.depth: 100
+    qos_overrides./tf.publisher.durability: volatile
+    qos_overrides./tf.publisher.history: keep_last
+    qos_overrides./tf.publisher.reliability: reliable
+    robot_base_frame: gimbal_yaw
+    use_sim_time: false

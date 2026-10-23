@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "path": "/home/ysu/robomaster/ysu2026_rm_sentry/src/robot_description/resource/xmacro/reality_robot.sdf.xmacro",
+      "sha256": "c4398c2883ce4bce18137b762a6293361f89ab31ea1a656ade2222642f12c6e5"
+    },
+    {
+      "path": "/home/ysu/robomaster/ysu2026_rm_sentry/src/pb2025_sentry_nav/pb2025_nav_bringup/config/reality/mid360_user_config.json",
+      "sha256": "08c6993e1a3825474f76f20ca7b4b3abdecb5e97223d5e7886fe34360c968d2f"
+    }
+  ],
+  "os_release": "PRETTY_NAME=\"Ubuntu 22.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.5 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\n",
+  "kernel": "Linux ysu 6.8.0-138-generic #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  x86_64 x86_64 x86_64 GNU/Linux\n"
+}

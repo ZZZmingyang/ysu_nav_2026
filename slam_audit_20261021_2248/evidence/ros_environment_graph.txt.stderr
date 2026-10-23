@@ -1,0 +1,2 @@
+/opt/ros/humble/lib/python3.10/site-packages/ros2doctor/api/__init__.py: 154: UserWarning: Fail to call PackageReport class functions.
+/opt/ros/humble/lib/python3.10/site-packages/ros2doctor/api/__init__.py: 154: UserWarning: Fail to call RosdistroReport class functions.

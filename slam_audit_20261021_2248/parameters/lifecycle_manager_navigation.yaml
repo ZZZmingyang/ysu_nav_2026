@@ -1,0 +1,22 @@
+/lifecycle_manager_navigation:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: false
+    attempt_respawn_reconnection: true
+    autostart: true
+    bond_respawn_max_duration: 10.0
+    bond_timeout: 4.0
+    diagnostic_updater.period: 1.0
+    diagnostic_updater.use_fqn: false
+    node_names:
+    - controller_server
+    - smoother_server
+    - planner_server
+    - behavior_server
+    - bt_navigator
+    - waypoint_follower
+    - velocity_smoother
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    use_sim_time: false

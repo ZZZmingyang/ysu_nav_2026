@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-21T23:08:40.581632+08:00",
+  "source_host": "ysu.local",
+  "source_directory": "/home/ysu/robomaster/ysu2026_rm_sentry/slam_audit_20261021_2248",
+  "destination_directory": "/home/tungchiahui/UserFolder/MySource/ysu2026_rm_sentry/ysu2026_rm_sentry_nav/slam_audit_20261021_2248",
+  "original_manifest_sha256": "3a1ab7e9455ed9646817d96c9645069d5955aa662354eda28e356255f75a8ca2",
+  "original_files_verified": 549,
+  "original_report_sha256": "6c68540c24076b83c84a50ea4f2c43898263b63c3b284c05903643fee0db046d",
+  "post_transfer_changes": [
+    "report.md: archive-location sentence updated",
+    "TRANSFER_VERIFICATION.json: added this receipt",
+    "SHA256SUMS.txt: recalculated for local archive"
+  ],
+  "remote_original_retained": true
+}

@@ -1,0 +1,170 @@
+diff --git a/src/robot_description/rviz/visualize_robot.rviz b/src/robot_description/rviz/visualize_robot.rviz
+index f5d7f94..9e1bd0f 100644
+--- a/src/robot_description/rviz/visualize_robot.rviz
++++ b/src/robot_description/rviz/visualize_robot.rviz
+@@ -5,10 +5,9 @@ Panels:
+     Property Tree Widget:
+       Expanded:
+         - /Global Options1
+-        - /TF1
+         - /TF1/Frames1
+       Splitter Ratio: 0.5029411911964417
+-    Tree Height: 760
++    Tree Height: 801
+   - Class: rviz_common/Selection
+     Name: Selection
+   - Class: rviz_common/Tool Properties
+@@ -24,7 +23,7 @@ Panels:
+     Experimental: false
+     Name: Time
+     SyncMode: 0
+-    SyncSource: ""
++    SyncSource: PointCloud2
+ Visualization Manager:
+   Class: ""
+   Displays:
+@@ -107,8 +106,6 @@ Visualization Manager:
+           Value: true
+         front_right_wheel:
+           Value: false
+-        front_rplidar_a2:
+-          Value: false
+         gimbal_pitch:
+           Value: true
+         gimbal_pitch_odom:
+@@ -149,8 +146,6 @@ Visualization Manager:
+               {}
+             front_right_wheel:
+               {}
+-            front_rplidar_a2:
+-              {}
+             gimbal_yaw_odom:
+               gimbal_pitch_odom:
+                 gimbal_yaw:
+@@ -170,6 +165,40 @@ Visualization Manager:
+               {}
+       Update Interval: 0
+       Value: true
++    - Alpha: 1
++      Autocompute Intensity Bounds: true
++      Autocompute Value Bounds:
++        Max Value: 10
++        Min Value: -10
++        Value: true
++      Axis: Z
++      Channel Name: intensity
++      Class: rviz_default_plugins/PointCloud2
++      Color: 255; 255; 255
++      Color Transformer: Intensity
++      Decay Time: 0
++      Enabled: true
++      Invert Rainbow: false
++      Max Color: 255; 255; 255
++      Max Intensity: 152
++      Min Color: 0; 0; 0
++      Min Intensity: 0
++      Name: PointCloud2
++      Position Transformer: XYZ
++      Selectable: true
++      Size (Pixels): 3
++      Size (m): 0.009999999776482582
++      Style: Flat Squares
++      Topic:
++        Depth: 5
++        Durability Policy: Volatile
++        Filter size: 10
++        History Policy: Keep Last
++        Reliability Policy: Reliable
++        Value: /livox/lidar/pointcloud
++      Use Fixed Frame: true
++      Use rainbow: true
++      Value: true
+   Enabled: true
+   Global Options:
+     Background Color: 48; 48; 48
+@@ -191,7 +220,7 @@ Visualization Manager:
+   Views:
+     Current:
+       Class: rviz_default_plugins/Orbit
+-      Distance: 0.7026371955871582
++      Distance: 7.9570112228393555
+       Enable Stereo Rendering:
+         Stereo Eye Separation: 0.05999999865889549
+         Stereo Focal Distance: 1
+@@ -206,18 +235,18 @@ Visualization Manager:
+       Invert Z Axis: false
+       Name: Current View
+       Near Clip Distance: 0.009999999776482582
+-      Pitch: -0.13142132759094238
++      Pitch: 0.3685787618160248
+       Target Frame: <Fixed Frame>
+       Value: Orbit (rviz)
+-      Yaw: 2.589263439178467
++      Yaw: 1.3692634105682373
+     Saved: ~
+ Window Geometry:
+   Displays:
+     collapsed: false
+-  Height: 983
++  Height: 1024
+   Hide Left Dock: false
+   Hide Right Dock: false
+-  QMainWindow State: 000000ff00000000fd00000004000000000000015600000381fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730200000438000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000381000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002b0000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d00650000000000000007800000025300fffffffb0000000800540069006d00650100000000000004500000000000000000000005010000038100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
++  QMainWindow State: 000000ff00000000fd000000040000000000000156000003aafc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730200000438000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b000003aa000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002b0fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d000002b0000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007800000003efc0100000002fb0000000800540069006d00650000000000000007800000025300fffffffb0000000800540069006d0065010000000000000450000000000000000000000624000003aa00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+   Selection:
+     collapsed: false
+   Time:
+@@ -226,6 +255,6 @@ Window Geometry:
+     collapsed: false
+   Views:
+     collapsed: false
+-  Width: 1629
+-  X: 291
+-  Y: 69
++  Width: 1920
++  X: 0
++  Y: 28
+diff --git a/src/sdformat_tools/sdformat_tools/__pycache__/__init__.cpython-310.pyc b/src/sdformat_tools/sdformat_tools/__pycache__/__init__.cpython-310.pyc
+index 8769d7c11eb1c8b50c8befa1dbf1c8a16682dfee..46530df502a7ec583f17a2f54120281e0e7d4a6c 100644
+GIT binary patch
+delta 62
+zcmcb`xS5eVpO=@50SNkcADGB(qaLQ8k)NBYUs+tLUzDGepPN`*l3E1f8W|Xw#TVtq
+O7pLZx6je@~>Iwj3Y87b!
+
+delta 101
+zcmdnYc#DxcpO=@50SGLnt)Iwk<5#Pnk)NBYUs9Tvo}7`Hm{FRkA6lGR<d&b4l3Jwi
+nTN#{RT9llsUs+sgWME_#Uz8hPoSIisREa4PpO;uRG0znMpi3j3
+
+diff --git a/src/sdformat_tools/sdformat_tools/__pycache__/sdf2urdf.cpython-310.pyc b/src/sdformat_tools/sdformat_tools/__pycache__/sdf2urdf.cpython-310.pyc
+index 29d66c0e9b666bbb8e7f2e4dd2e25d7dcd15d560..6d6d22c2b2eddf5569cda54d9ad4ce9b734f82cc 100644
+GIT binary patch
+delta 65
+zcmeCsf2hZu&&$ij00jNJ4{YR~!l)jmpOK%Ns$W@Ls$Z0!l%JbeT#{M@;u;wknZ+07
+R#uumNl@wKOe#<yp6acv~7XJVM
+
+delta 104
+zcmaE;*P+jy&&$ij00b7()^FsV!su74pOK%Ns$Wu?m!6!FnV3<UsUKRLTI80WlagAb
+q?^_w1Us{x$s$W@LYGhz!7GIPbU!0m(QdEg45}%h?w)q(2Y*7F$%q27c
+
+diff --git a/src/sdformat_tools/sdformat_tools/__pycache__/sdf_util.cpython-310.pyc b/src/sdformat_tools/sdformat_tools/__pycache__/sdf_util.cpython-310.pyc
+index b7e1c8b308dd4b05674b82b2b6bc46e4698c96ed..3652c66e1b664878c4c75f26016f3ffb32769e41 100644
+GIT binary patch
+delta 65
+zcmdnPK9!w2pO=@50SNkcAK1uU!l)jmpOK%Ns$W@Ls$Z0!l%JbeT#{M@;u;wknZ+07
+R#uumNl@wKOKFj!?5dfNV7MK74
+
+delta 104
+zcmbQrzK5MVpO=@50SGLnt>4I9!su74pOK%Ns$Wu?m!6!FnV3<UsUKRLTI80WlagAb
+q?^_w1Us{x$s$W@LYGhz!7GIPbU!0m(QdEg45}%h?ws{%jdqx2Ha3swD
+
+diff --git a/src/sdformat_tools/sdformat_tools/__pycache__/urdf_generator.cpython-310.pyc b/src/sdformat_tools/sdformat_tools/__pycache__/urdf_generator.cpython-310.pyc
+index 5cef2ed92a4ca1f3bdbc16087b441f6cd1779628..482f4e0617992ba69e2ec7003d84c5990015e998 100644
+GIT binary patch
+delta 65
+zcmdlZJyn`JpO=@50SNkcAK1v9#;6{npOK%Ns$W@Ls$Z0!l%JbeT#{M@;u;wknZ+07
+R#uumNl@wKO-p}}#8vvrO7Qz4k
+
+delta 104
+zcmbO#y+@impO=@50SGLnt>4I<#^~3qpOK%Ns$Wu?m!6!FnV3<UsUKRLTI80WlagAb
+q?^_w1Us{x$s$W@LYGhz!7GIPbU!0m(QdEg45}%h?ws{8QUv2;fn<V!D
+

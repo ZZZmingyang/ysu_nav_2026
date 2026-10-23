@@ -1,0 +1,22 @@
+/pointcloud_to_laserscan:
+  ros__parameters:
+    angle_increment: 0.00872665
+    angle_max: 3.1415926
+    angle_min: -3.1415926
+    inf_epsilon: 1.0
+    max_height: 6.0
+    max_intensity: 2.0
+    min_height: -0.5
+    min_intensity: 0.1
+    qos_overrides./parameter_events.publisher.depth: 1000
+    qos_overrides./parameter_events.publisher.durability: volatile
+    qos_overrides./parameter_events.publisher.history: keep_last
+    qos_overrides./parameter_events.publisher.reliability: reliable
+    queue_size: 16
+    range_max: 10.0
+    range_min: 0.3
+    scan_time: 0.05
+    target_frame: base_footprint
+    transform_tolerance: 0.01
+    use_inf: true
+    use_sim_time: false

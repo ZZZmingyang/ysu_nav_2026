@@ -1,0 +1,10 @@
+/waypoint_follower:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    loop_rate: 20
+    stop_on_failure: false
+    use_sim_time: false
+    wait_at_waypoint.enabled: true
+    wait_at_waypoint.plugin: nav2_waypoint_follower::WaitAtWaypoint
+    wait_at_waypoint.waypoint_pause_duration: 200
+    waypoint_task_executor_plugin: wait_at_waypoint

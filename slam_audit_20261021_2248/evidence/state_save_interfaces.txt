@@ -1,0 +1,75 @@
+string filename
+---
+# Result code defintions
+uint8 RESULT_SUCCESS=0
+uint8 RESULT_FAILED_TO_WRITE_FILE=255
+
+uint8 result
+# Get the map as a nav_msgs/OccupancyGrid
+---
+# The current map hosted by this map service.
+OccupancyGrid map
+	std_msgs/Header header
+		builtin_interfaces/Time stamp
+			int32 sec
+			uint32 nanosec
+		string frame_id
+	MapMetaData info
+		builtin_interfaces/Time map_load_time
+			int32 sec
+			uint32 nanosec
+		float32 resolution
+		uint32 width
+		uint32 height
+		geometry_msgs/Pose origin
+			Point position
+				float64 x
+				float64 y
+				float64 z
+			Quaternion orientation
+				float64 x 0
+				float64 y 0
+				float64 z 0
+				float64 w 1
+	int8[] data
+2026-10-20 13:06:20.503552478 +0000 110078269 /home/ysu/robomaster/ysu2026_rm_sentry/src/pb2025_sentry_nav/point_lio/PCD/scans.pcd
+total 0
+lr-x------ 1 root root 64 Oct 21 14:45 0 -> pipe:[214661]
+l-wx------ 1 root root 64 Oct 21 14:45 1 -> pipe:[214662]
+lrwx------ 1 root root 64 Oct 21 14:45 10 -> socket:[214607]
+lrwx------ 1 root root 64 Oct 21 14:45 11 -> socket:[214608]
+lrwx------ 1 root root 64 Oct 21 14:45 12 -> socket:[214609]
+lrwx------ 1 root root 64 Oct 21 14:45 13 -> socket:[214610]
+lr-x------ 1 root root 64 Oct 21 14:45 14 -> /dev/shm/fastrtps_4c27ace83d95df5a_el
+lrwx------ 1 root root 64 Oct 21 14:45 15 -> anon_inode:[eventfd]
+lrwx------ 1 root root 64 Oct 21 14:45 16 -> anon_inode:[eventpoll]
+lrwx------ 1 root root 64 Oct 21 14:45 17 -> anon_inode:[timerfd]
+lrwx------ 1 root root 64 Oct 21 14:45 18 -> socket:[214621]
+lrwx------ 1 root root 64 Oct 21 14:45 19 -> socket:[214626]
+l-wx------ 1 root root 64 Oct 21 14:45 2 -> pipe:[214663]
+lr-x------ 1 root root 64 Oct 21 14:45 20 -> /dev/shm/fastrtps_port8913_el
+lrwx------ 1 root root 64 Oct 21 14:45 21 -> socket:[214629]
+lrwx------ 1 root root 64 Oct 21 14:45 22 -> socket:[214634]
+lrwx------ 1 root root 64 Oct 21 14:45 23 -> socket:[214635]
+lrwx------ 1 root root 64 Oct 21 14:45 24 -> socket:[214636]
+l-wx------ 1 root root 64 Oct 21 14:45 25 -> /root/.vscode-server/data/logs/20261021T143919/remoteagent.log
+lrwx------ 1 root root 64 Oct 21 14:45 26 -> /dev/ptmx
+l-wx------ 1 root root 64 Oct 21 14:45 27 -> /root/.vscode-server/data/logs/20261021T143919/mcpGateway.log
+lrwx------ 1 root root 64 Oct 21 14:45 28 -> /dev/ptmx
+lrwx------ 1 root root 64 Oct 21 14:45 29 -> socket:[217249]
+l-wx------ 1 root root 64 Oct 21 14:45 3 -> /root/.ros/log/pointlio_mapping_22815_1792593955196.log
+lrwx------ 1 root root 64 Oct 21 14:45 30 -> socket:[217265]
+lr-x------ 1 root root 64 Oct 21 14:45 31 -> /dev/shm/fastrtps_port8935_el
+lrwx------ 1 root root 64 Oct 21 14:45 32 -> socket:[217290]
+lrwx------ 1 root root 64 Oct 21 14:45 33 -> socket:[217306]
+lrwx------ 1 root root 64 Oct 21 14:45 34 -> socket:[217307]
+lrwx------ 1 root root 64 Oct 21 14:45 35 -> socket:[217308]
+l-wx------ 1 root root 64 Oct 21 14:45 36 -> /home/ysu/robomaster/ysu2026_rm_sentry/src/pb2025_sentry_nav/point_lio/Log/pos_log.txt
+l-wx------ 1 root root 64 Oct 21 14:45 37 -> /home/ysu/robomaster/ysu2026_rm_sentry/src/pb2025_sentry_nav/point_lio/Log/mat_out.txt
+l-wx------ 1 root root 64 Oct 21 14:45 38 -> /home/ysu/robomaster/ysu2026_rm_sentry/src/pb2025_sentry_nav/point_lio/Log/imu_pbp.txt
+lrwx------ 1 root root 64 Oct 21 14:45 4 -> socket:[217235]
+lrwx------ 1 root root 64 Oct 21 14:45 5 -> socket:[217236]
+lrwx------ 1 root root 64 Oct 21 14:45 6 -> socket:[217237]
+lrwx------ 1 root root 64 Oct 21 14:45 7 -> socket:[217238]
+lr-x------ 1 root root 64 Oct 21 14:45 8 -> /dev/shm/fastrtps_79bad766bc402369_el
+l-wx------ 1 root root 64 Oct 21 14:45 9 -> /root/.ros/log/python3_22760_1792593954843.log

@@ -1,0 +1,8 @@
+/map_saver:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    free_thresh_default: 0.25
+    map_subscribe_transient_local: true
+    occupied_thresh_default: 0.65
+    save_map_timeout: 5.0
+    use_sim_time: false

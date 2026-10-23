@@ -1,0 +1,3 @@
+/point_lio:
+  ros__parameters:
+    pcd_save.pcd_save_en: true

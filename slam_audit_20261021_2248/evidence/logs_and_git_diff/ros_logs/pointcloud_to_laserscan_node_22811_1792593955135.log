@@ -1,0 +1,2 @@
+[INFO] [1792593955.283341088] [pointcloud_to_laserscan]: Got a subscriber to laserscan, starting pointcloud subscriber
+[INFO] [1792593968.520450432] [pointcloud_to_laserscan]: Message Filter dropping message: frame 'odom' at time 1792593958.414 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

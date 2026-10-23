@@ -1,0 +1,30 @@
+/velocity_smoother:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    deadband_velocity:
+    - 0.0
+    - 0.0
+    - 0.0
+    feedback: OPEN_LOOP
+    max_accel:
+    - 4.5
+    - 4.5
+    - 5.0
+    max_decel:
+    - -4.5
+    - -4.5
+    - -5.0
+    max_velocity:
+    - 2.5
+    - 2.5
+    - 3.0
+    min_velocity:
+    - -2.5
+    - -2.5
+    - -3.0
+    odom_duration: 0.1
+    odom_topic: odometry
+    scale_velocities: false
+    smoothing_frequency: 20.0
+    use_sim_time: false
+    velocity_timeout: 1.0
