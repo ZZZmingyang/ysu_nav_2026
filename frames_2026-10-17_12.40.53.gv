@@ -1,0 +1,30 @@
+digraph G {
+"chassis" -> "front_left_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"base_footprint" -> "chassis"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "front_right_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"gimbal_yaw" -> "gimbal_pitch"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"gimbal_pitch_odom" -> "gimbal_yaw"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"gimbal_yaw_odom" -> "gimbal_pitch_odom"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "rear_left_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"chassis" -> "rear_right_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 1792240853.010069\nOldest transform: 1792240850.410108\n"];
+"map" -> "odom"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"armor_support_frame_0" -> "armor_0"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "armor_support_frame_0"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"armor_support_frame_1" -> "armor_1"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "armor_support_frame_1"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"armor_support_frame_2" -> "armor_2"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "armor_support_frame_2"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"armor_support_frame_3" -> "armor_3"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "armor_support_frame_3"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_footprint"[label=" Broadcaster: default_authority\nAverage rate: 6.089\nBuffer length: 1.15\nMost recent transform: 1792240850.408781\nOldest transform: 1792240849.259092\n"];
+"gimbal_pitch" -> "front_industrial_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"front_industrial_camera" -> "front_industrial_camera_optical_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"gimbal_yaw" -> "front_mid360"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "gimbal_yaw_odom"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "light_indicator"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"gimbal_pitch" -> "speed_monitor"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1792240853.0194323"[ shape=plaintext ] ;
+}->"map";
+}
