@@ -27,3 +27,6 @@ __pycache__/
 
 # Local SLAM point-cloud map
 /src/pb2025_sentry_nav/pb2025_nav_bringup/pcd/reality/scans.pcd
+
+# Local rosbag2 recordings
+/src/nav_bag_tools/recordings/

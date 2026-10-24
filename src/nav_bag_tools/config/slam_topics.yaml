@@ -1,0 +1,55 @@
+# 如果实际运行时的命名空间或话题重映射发生变化，需要同步修改这些名称。
+record:
+  # 原始传感器数据，包含Livox的两种点云格式。
+  - /livox/lidar
+  - /livox/lidar/pointcloud
+  - /livox/imu
+  # 硬件反馈，以及机器人模型实际接收的关节状态。
+  - /serial/gimbal_joint_state
+  - /serial/imu
+  - /joint_states
+  - /tf
+  - /tf_static
+  - /robot_description
+  # 算法中间输出及诊断信息，用于故障复盘和结果对比。
+  - /aft_mapped_to_init
+  - /cloud_registered
+  - /lidar_odometry
+  - /registered_scan
+  - /odometry
+  - /sensor_scan
+  - /terrain_map
+  - /terrain_map_ext
+  - /obstacle_scan
+  - /map
+  - /map_metadata
+  - /pose
+  - /rosout
+  - /parameter_events
+  - /diagnostics
+  # 会改变算法内部状态的外部输入；允许当前没有发布者。
+  - /joy
+  - /map_clearing
+  - /cloud_clearing
+
+# include_debug:=true时，录制和view回放会**追加**以下调试话题。
+debug:
+  - /cloud_registered_body
+  - /cloud_effected
+  - /Laser_map
+  - /path
+  - /slam_toolbox/graph_visualization
+  - /slam_toolbox/scan_visualization
+  - /slam_toolbox/update
+  - /slam_toolbox/feedback
+
+# 重跑算法时，由新算法生成自己的TF、里程计、点云和地图。
+# 静态坐标变换需要根据归档的机器人模型和配置重新发布。
+# 将录制的/joint_states直接送给robot_state_publisher，勿同时启动joint_state_publisher。
+reprocess:
+  - /livox/lidar
+  - /livox/imu
+  - /joint_states
+  - /joy
+  - /map_clearing
+  - /cloud_clearing

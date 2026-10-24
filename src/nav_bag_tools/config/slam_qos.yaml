@@ -1,0 +1,57 @@
+# 本文件用于覆盖rosbag2的QoS配置，不是ROS节点的参数文件。
+# 队列深度是为录制器和播放器选定的值，没有照搬DDS发现结果中的UNKNOWN/0。
+# 尽力而为（best_effort）可避免新增一个高带宽的可靠订阅端，但不保证无丢包。
+# 正式实验前，需要实测录制吞吐量。
+/livox/lidar:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/livox/lidar/pointcloud:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/livox/imu:
+  history: keep_last
+  depth: 200
+  reliability: best_effort
+  durability: volatile
+/obstacle_scan:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+
+# /rosout可能同时存在volatile和transient_local两种持久性的发布者。
+# 录制器请求volatile可兼容这两种发布者；若仅按最先发现的发布者自动选择QoS，
+# 可能导致后续日志发布者与录制器不兼容。
+/rosout:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+
+# 使用transient_local，让晚启动的录制器也能收到发布者保留的历史数据。
+# 回放时，原来的多个静态TF发布者会合并为一个播放器发布者。
+# 因此/tf_static需保留多条TFMessage，让晚加入的监听者仍能取得原来的多份静态TF快照。
+/tf_static:
+  history: keep_last
+  depth: 100
+  reliability: reliable
+  durability: transient_local
+/map:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/map_metadata:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/robot_description:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
