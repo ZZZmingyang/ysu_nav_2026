@@ -23,6 +23,52 @@ static constexpr fp32 PITCH_SCAN_SPEED = 0.1f;
 
 using namespace std::chrono_literals;
 
+// 按关节名读取角度，不要求 pitch、yaw 的排列顺序
+static bool read_gimbal_position(
+    const sensor_msgs::msg::JointState &msg,
+    fp64 &pitch_position,
+    fp64 &yaw_position)
+{
+    if (msg.name.size() != msg.position.size() ||
+        msg.position.size() < 2)
+    {
+        return false;
+    }
+
+    bool found_pitch = false;
+    bool found_yaw = false;
+
+    for (std::size_t i = 0; i < msg.name.size(); ++i)
+    {
+        if (msg.name[i] == "gimbal_pitch_joint")
+        {
+            // 同一个目标关节不能重复出现
+            if (found_pitch)
+            {
+                return false;
+            }
+
+            pitch_position = msg.position[i];
+            found_pitch = true;
+        }
+        else if (msg.name[i] == "gimbal_yaw_joint")
+        {
+            if (found_yaw)
+            {
+                return false;
+            }
+
+            yaw_position = msg.position[i];
+            found_yaw = true;
+        }
+    }
+
+    return found_pitch && found_yaw &&
+           std::isfinite(pitch_position) &&
+           std::isfinite(yaw_position);
+}
+
+
 class Gimbal_Scan_Node: public rclcpp::Node
 {
   public:
@@ -57,19 +103,10 @@ class Gimbal_Scan_Node: public rclcpp::Node
     // 订阅编码器角度
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
-        // 按当前 serial_comm 的反馈顺序：
-        // position[0]：pitch，position[1]：yaw
-        if (msg.name.size() != msg.position.size() || msg.position.size() < 2)
-        {
-            return;
-        }
+        fp64 pitch_position = 0.0;
+        fp64 yaw_position = 0.0;
 
-        if (msg.name[0] != "gimbal_pitch_joint" || msg.name[1] != "gimbal_yaw_joint")
-        {
-            return;
-        }
-
-        if (!std::isfinite(msg.position[0]) || !std::isfinite(msg.position[1]))
+        if (!read_gimbal_position(msg, pitch_position, yaw_position))
         {
             return;
         }
@@ -81,8 +118,8 @@ class Gimbal_Scan_Node: public rclcpp::Node
             // 初始角度超出软限位时等待处理，避免直接跳到限位位置
             // yaw 保留多圈值，但必须能够表示为当前使用的 fp32 类型
             // std::numeric_limits<fp32>::max() 是获取 fp32 类型的最大表示值
-            if (msg.position[0] < PITCH_MIN || msg.position[0] > PITCH_MAX ||
-                std::abs(msg.position[1]) > std::numeric_limits<fp32>::max())
+            if (pitch_position < PITCH_MIN || pitch_position > PITCH_MAX ||
+                std::abs(yaw_position) > std::numeric_limits<fp32>::max())
             {
                 RCLCPP_WARN_THROTTLE(
                     this->get_logger(), *this->get_clock(), 1000,
@@ -90,8 +127,8 @@ class Gimbal_Scan_Node: public rclcpp::Node
                 return;
             }
 
-            cmd_gimbal_joint_field.pitch = msg.position[0];
-            cmd_gimbal_joint_field.yaw = msg.position[1];
+            cmd_gimbal_joint_field.pitch = pitch_position;
+            cmd_gimbal_joint_field.yaw = yaw_position;
 
             // 先用固定速度演示，后面再改成扫描任务参数
             cmd_gimbal_joint_field.yaw_vel = YAW_SCAN_SPEED;

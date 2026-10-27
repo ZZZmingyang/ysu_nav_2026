@@ -26,6 +26,53 @@ constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 
 using namespace std::chrono_literals;
 
+// 按关节名读取角度，不要求 pitch、yaw 的排列顺序
+static bool read_gimbal_position(
+    const sensor_msgs::msg::JointState &msg,
+    fp64 &pitch_position,
+    fp64 &yaw_position)
+{
+    if (msg.name.size() != msg.position.size() ||
+        msg.position.size() < 2)
+    {
+        return false;
+    }
+
+    bool found_pitch = false;
+    bool found_yaw = false;
+
+    for (std::size_t i = 0; i < msg.name.size(); ++i)
+    {
+        if (msg.name[i] == "gimbal_pitch_joint")
+        {
+            // 同一个目标关节不能重复出现
+            if (found_pitch)
+            {
+                return false;
+            }
+
+            pitch_position = msg.position[i];
+            found_pitch = true;
+        }
+        else if (msg.name[i] == "gimbal_yaw_joint")
+        {
+            if (found_yaw)
+            {
+                return false;
+            }
+
+            yaw_position = msg.position[i];
+            found_yaw = true;
+        }
+    }
+
+    return found_pitch && found_yaw &&
+           std::isfinite(pitch_position) &&
+           std::isfinite(yaw_position);
+}
+
+
+
 class Serial_Node: public rclcpp::Node
 {
   public:
@@ -168,16 +215,11 @@ class Serial_Node: public rclcpp::Node
 
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
-      // 云台绝对位置目标，顺序与 joy、扫描节点一致，单位 rad
-      if(msg.name.size() != msg.position.size() || msg.position.size() < 2)
-      {
-        received_cmd_gimbal_ = false;
-        return;
-      }
+      fp64 pitch_position = 0.0;
+      fp64 yaw_position = 0.0;
 
-      if (msg.name[0] != "gimbal_pitch_joint" || msg.name[1] != "gimbal_yaw_joint" ||
-          !std::isfinite(msg.position[0]) || !std::isfinite(msg.position[1]) ||
-          std::abs(msg.position[1]) > std::numeric_limits<fp32>::max())
+      if (!read_gimbal_position(msg, pitch_position, yaw_position) ||
+        std::abs(yaw_position) > std::numeric_limits<fp32>::max())
       {
         received_cmd_gimbal_ = false;
         return;
@@ -185,13 +227,13 @@ class Serial_Node: public rclcpp::Node
 
       // pitch 在串口发送前再次限幅
       const fp32 pitch = static_cast<fp32>(std::clamp(
-        msg.position[0], static_cast<fp64>(PITCH_MIN), static_cast<fp64>(PITCH_MAX)));
+        pitch_position, static_cast<fp64>(PITCH_MIN), static_cast<fp64>(PITCH_MAX)));
 
       constexpr fp64 PI = 3.14159265358979323846;
       constexpr fp64 TWO_PI = 2.0 * PI;
 
       // fmod 对 2π 取余，结果与输入同号，范围为 (-2π, 2π)；随后调整到 [-π, π)
-      fp64 yaw_single = std::fmod(msg.position[1], TWO_PI);
+      fp64 yaw_single = std::fmod(yaw_position, TWO_PI);
 
       // 归一化 yaw 到 [-π, π)
       if (yaw_single >= PI)
