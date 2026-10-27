@@ -9,15 +9,17 @@
 #include <limits>
 #include <memory>
 
-// 沿用 joy 的 pitch 软限位；yaw 支持多圈，不限制位置角度
+// pitch 软限位；yaw 支持多圈，不限制位置角度
 static constexpr fp32 PITCH_MIN = -0.56f;
 static constexpr fp32 PITCH_MAX =  0.56f;
 
-// 参考 joy 的满量程映射设置软件速度上限，不代表机械极限
+// 软件速度上限，不代表机械极限
 static constexpr fp32 MAX_YAW_SPEED = 2.5f;
 static constexpr fp32 MAX_PITCH_SPEED = 1.0f;
+
+// 云台扫描速度
 static constexpr fp32 YAW_SCAN_SPEED = 0.3f;
-static constexpr fp32 PITCH_SCAN_SPEED = 0.2f;
+static constexpr fp32 PITCH_SCAN_SPEED = 0.1f;
 
 using namespace std::chrono_literals;
 
@@ -78,6 +80,7 @@ class Gimbal_Scan_Node: public rclcpp::Node
         {
             // 初始角度超出软限位时等待处理，避免直接跳到限位位置
             // yaw 保留多圈值，但必须能够表示为当前使用的 fp32 类型
+            // std::numeric_limits<fp32>::max() 是获取 fp32 类型的最大表示值
             if (msg.position[0] < PITCH_MIN || msg.position[0] > PITCH_MAX ||
                 std::abs(msg.position[1]) > std::numeric_limits<fp32>::max())
             {
@@ -93,7 +96,7 @@ class Gimbal_Scan_Node: public rclcpp::Node
             // 先用固定速度演示，后面再改成扫描任务参数
             cmd_gimbal_joint_field.yaw_vel = YAW_SCAN_SPEED;
             cmd_gimbal_joint_field.pitch_vel =
-                cmd_gimbal_joint_field.pitch >= PITCH_MAX ?
+                cmd_gimbal_joint_field.pitch >= PITCH_MAX ? //初始位置低着头，扫描时上移
                 -PITCH_SCAN_SPEED : PITCH_SCAN_SPEED;
 
             last_update_ = this->now();
@@ -168,6 +171,8 @@ class Gimbal_Scan_Node: public rclcpp::Node
                 -MAX_PITCH_SPEED,
                 MAX_PITCH_SPEED
             );
+
+            // 多圈Yaw
             cmd_gimbal_joint_field.yaw +=
                 cmd_gimbal_joint_field.yaw_vel * dt;
 
@@ -202,7 +207,7 @@ class Gimbal_Scan_Node: public rclcpp::Node
             return;
         }
 
-        // 和 joy 一样，在发布前执行最终 pitch 软限幅
+        // 在发布前执行最终 pitch 软限幅
         cmd_gimbal_joint_field.pitch = std::clamp(
             cmd_gimbal_joint_field.pitch,
             PITCH_MIN,

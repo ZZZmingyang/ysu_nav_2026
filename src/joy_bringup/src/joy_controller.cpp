@@ -11,6 +11,8 @@
 #include "sensor_msgs/msg/joint_state.hpp"
 #include <chrono>
 
+//已知问题待修复：yaw、pitch 目标初始值都是零，需要改成根据当前云台角度计算。
+
 // 先用保守的软限位，避免碰到模型的机械限位
 static constexpr fp32 PITCH_MIN = -0.56f;
 static constexpr fp32 PITCH_MAX =  0.56f;
@@ -96,7 +98,7 @@ class Joy_Node: public rclcpp::Node
             stop_input();
         }
 
-        // 暂停时 dt 为零；时间回跳或异常跨越时跳过这次积分
+        // 暂停时 dt 为零；时间回跳或异常跨越时跳过这次积分，Yaw支持多圈，不限制位置角度
         if (dt > 0.0 && dt <= 0.1) 
         {
             cmd_gimbal_joint_field.yaw +=

@@ -15,9 +15,13 @@
 #include <cmath>
 #include <limits>
 
-// 与 joy、云台扫描节点使用相同的 pitch 软限位
+// pitch 软限位
 static constexpr fp32 PITCH_MIN = -0.56f;
 static constexpr fp32 PITCH_MAX =  0.56f;
+
+// 限制速度
+constexpr fp64 MAX_LINEAR_SPEED = 0.20;   // m/s，平移合速度
+constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 
 
 using namespace std::chrono_literals;
@@ -127,9 +131,6 @@ class Serial_Node: public rclcpp::Node
 
     void cmd_vel_sub_callback(const geometry_msgs::msg::Twist &msg)
     {
-      // 限制速度
-      constexpr fp64 MAX_LINEAR_SPEED = 0.20;   // m/s，平移合速度
-      constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 
       fp64 vx = msg.linear.x;
       fp64 vy = msg.linear.y;
@@ -182,10 +183,27 @@ class Serial_Node: public rclcpp::Node
         return;
       }
 
-      // pitch 在串口发送前再次限幅；yaw 保留多圈角度
+      // pitch 在串口发送前再次限幅
       const fp32 pitch = static_cast<fp32>(std::clamp(
         msg.position[0], static_cast<fp64>(PITCH_MIN), static_cast<fp64>(PITCH_MAX)));
-      const fp32 yaw = static_cast<fp32>(msg.position[1]);
+
+      constexpr fp64 PI = 3.14159265358979323846;
+      constexpr fp64 TWO_PI = 2.0 * PI;
+
+      // fmod 对 2π 取余，结果与输入同号，范围为 (-2π, 2π)；随后调整到 [-π, π)
+      fp64 yaw_single = std::fmod(msg.position[1], TWO_PI);
+
+      // 归一化 yaw 到 [-π, π)
+      if (yaw_single >= PI)
+      {
+        yaw_single -= TWO_PI;
+      }
+      else if (yaw_single < -PI)
+      {
+        yaw_single += TWO_PI;
+      }
+
+      const fp32 yaw = static_cast<fp32>(yaw_single);
 
       if (!std::isfinite(pitch) || !std::isfinite(yaw))
       {
