@@ -48,6 +48,11 @@ ament_target_dependencies(
   sensor_msgs
 )
 
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 install(TARGETS behavior_manager_node
   DESTINATION lib/${PROJECT_NAME})
 

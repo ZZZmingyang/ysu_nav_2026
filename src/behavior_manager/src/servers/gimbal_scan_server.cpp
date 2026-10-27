@@ -17,13 +17,14 @@ static constexpr fp32 PITCH_MAX =  0.56f;
 static constexpr fp32 MAX_YAW_SPEED = 2.5f;
 static constexpr fp32 MAX_PITCH_SPEED = 1.0f;
 
-// 云台扫描速度
-static constexpr fp32 YAW_SCAN_SPEED = 0.3f;
-static constexpr fp32 PITCH_SCAN_SPEED = 0.1f;
+// 云台扫描速度 单位：rad/s
+static constexpr fp32 YAW_SCAN_SPEED = 1.25f;
+static constexpr fp32 PITCH_SCAN_SPEED = 0.5f;
 
 using namespace std::chrono_literals;
 
 // 按关节名读取角度，不要求 pitch、yaw 的排列顺序
+// 仿真里他也做了这种处理，但是你从仿真里读取关节角度却定死了先 yaw 后 pitch,所以这里读角度要做自适应读取角度
 static bool read_gimbal_position(
     const sensor_msgs::msg::JointState &msg,
     fp64 &pitch_position,

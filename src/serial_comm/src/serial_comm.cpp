@@ -27,6 +27,7 @@ constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 using namespace std::chrono_literals;
 
 // 按关节名读取角度，不要求 pitch、yaw 的排列顺序
+// 仿真里他也做了这种处理，但是你从仿真里读取关节角度却定死了先 yaw 后 pitch,所以这里读角度要做自适应读取角度
 static bool read_gimbal_position(
     const sensor_msgs::msg::JointState &msg,
     fp64 &pitch_position,
