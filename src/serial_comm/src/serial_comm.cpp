@@ -13,10 +13,66 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <algorithm>
 #include <cmath>
+#include <limits>
 
+// pitch 软限位
+static constexpr fp32 PITCH_MIN = -0.56f;
+static constexpr fp32 PITCH_MAX =  0.56f;
+
+// 限制速度
+constexpr fp64 MAX_LINEAR_SPEED = 0.20;   // m/s，平移合速度
+constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 
 
 using namespace std::chrono_literals;
+
+// 按关节名读取角度，不要求 pitch、yaw 的排列顺序
+// 仿真里他也做了这种处理，但是你从仿真里读取关节角度却定死了先 yaw 后 pitch,所以这里读角度要做自适应读取角度
+static bool read_gimbal_position(
+    const sensor_msgs::msg::JointState &msg,
+    fp64 &pitch_position,
+    fp64 &yaw_position)
+{
+    if (msg.name.size() != msg.position.size() ||
+        msg.position.size() < 2)
+    {
+        return false;
+    }
+
+    bool found_pitch = false;
+    bool found_yaw = false;
+
+    for (std::size_t i = 0; i < msg.name.size(); ++i)
+    {
+        if (msg.name[i] == "gimbal_pitch_joint")
+        {
+            // 同一个目标关节不能重复出现
+            if (found_pitch)
+            {
+                return false;
+            }
+
+            pitch_position = msg.position[i];
+            found_pitch = true;
+        }
+        else if (msg.name[i] == "gimbal_yaw_joint")
+        {
+            if (found_yaw)
+            {
+                return false;
+            }
+
+            yaw_position = msg.position[i];
+            found_yaw = true;
+        }
+    }
+
+    return found_pitch && found_yaw &&
+           std::isfinite(pitch_position) &&
+           std::isfinite(yaw_position);
+}
+
+
 
 class Serial_Node: public rclcpp::Node
 {
@@ -123,9 +179,6 @@ class Serial_Node: public rclcpp::Node
 
     void cmd_vel_sub_callback(const geometry_msgs::msg::Twist &msg)
     {
-      // 限制速度
-      constexpr fp64 MAX_LINEAR_SPEED = 0.20;   // m/s，平移合速度
-      constexpr fp64 MAX_ANGULAR_SPEED = 0.20;  // rad/s，底盘角速度
 
       fp64 vx = msg.linear.x;
       fp64 vy = msg.linear.y;
@@ -163,15 +216,46 @@ class Serial_Node: public rclcpp::Node
 
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
-      // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
-      if(msg.name.size() < 2 || msg.position.size() < 2)
+      fp64 pitch_position = 0.0;
+      fp64 yaw_position = 0.0;
+
+      if (!read_gimbal_position(msg, pitch_position, yaw_position) ||
+        std::abs(yaw_position) > std::numeric_limits<fp32>::max())
       {
         received_cmd_gimbal_ = false;
         return;
       }
 
-      cmd_gimbal_joint_field.rel_pitch = msg.position[0];
-      cmd_gimbal_joint_field.rel_yaw = msg.position[1];
+      // pitch 在串口发送前再次限幅
+      const fp32 pitch = static_cast<fp32>(std::clamp(
+        pitch_position, static_cast<fp64>(PITCH_MIN), static_cast<fp64>(PITCH_MAX)));
+
+      constexpr fp64 PI = 3.14159265358979323846;
+      constexpr fp64 TWO_PI = 2.0 * PI;
+
+      // fmod 对 2π 取余，结果与输入同号，范围为 (-2π, 2π)；随后调整到 [-π, π)
+      fp64 yaw_single = std::fmod(yaw_position, TWO_PI);
+
+      // 归一化 yaw 到 [-π, π)
+      if (yaw_single >= PI)
+      {
+        yaw_single -= TWO_PI;
+      }
+      else if (yaw_single < -PI)
+      {
+        yaw_single += TWO_PI;
+      }
+
+      const fp32 yaw = static_cast<fp32>(yaw_single);
+
+      if (!std::isfinite(pitch) || !std::isfinite(yaw))
+      {
+        received_cmd_gimbal_ = false;
+        return;
+      }
+
+      cmd_gimbal_joint_field.rel_pitch = pitch;
+      cmd_gimbal_joint_field.rel_yaw = yaw;
 
       last_cmd_gimbal_time_ = std::chrono::steady_clock::now();
       received_cmd_gimbal_ = true;

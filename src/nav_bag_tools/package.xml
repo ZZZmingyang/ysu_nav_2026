@@ -3,7 +3,7 @@
 <package format="3">
   <name>nav_bag_tools</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>SLAM recording and playback launch files using official rosbag2 tools.</description>
   <maintainer email="tungchiahui@gmail.com">tungchiahui</maintainer>
   <license>TODO: License declaration</license>
 
@@ -12,6 +12,13 @@
   <depend>rclcpp</depend>
   <depend>rosbag2_cpp</depend>
   <depend>geometry_msgs</depend>
+
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>ros2bag</exec_depend>
+  <exec_depend>rosbag2_transport</exec_depend>
+  <exec_depend>rosbag2_storage_default_plugins</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
