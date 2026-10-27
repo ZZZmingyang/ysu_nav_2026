@@ -164,7 +164,7 @@ class Serial_Node: public rclcpp::Node
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
       // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
-      if(msg.name.size() < 2 || msg.position.size() < 2)
+      if(msg.name.size() != msg.position.size() || msg.position.size() < 2)
       {
         received_cmd_gimbal_ = false;
         return;
