@@ -25,6 +25,9 @@ target_include_directories(behavior_manager_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
+target_include_directories(gimbal_scan_server PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
 
 target_compile_features(behavior_manager_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_compile_features(gimbal_scan_server PUBLIC c_std_99 cxx_std_17)

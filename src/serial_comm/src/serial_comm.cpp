@@ -13,7 +13,11 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <algorithm>
 #include <cmath>
+#include <limits>
 
+// 与 joy、云台扫描节点使用相同的 pitch 软限位
+static constexpr fp32 PITCH_MIN = -0.56f;
+static constexpr fp32 PITCH_MAX =  0.56f;
 
 
 using namespace std::chrono_literals;
@@ -163,15 +167,34 @@ class Serial_Node: public rclcpp::Node
 
     void joint_state_sub_callback(const sensor_msgs::msg::JointState &msg)
     {
-      // 相对于云台的线速度、线速度和角速度，单位都是 m/s 和 rad/s 分别
+      // 云台绝对位置目标，顺序与 joy、扫描节点一致，单位 rad
       if(msg.name.size() != msg.position.size() || msg.position.size() < 2)
       {
         received_cmd_gimbal_ = false;
         return;
       }
 
-      cmd_gimbal_joint_field.rel_pitch = msg.position[0];
-      cmd_gimbal_joint_field.rel_yaw = msg.position[1];
+      if (msg.name[0] != "gimbal_pitch_joint" || msg.name[1] != "gimbal_yaw_joint" ||
+          !std::isfinite(msg.position[0]) || !std::isfinite(msg.position[1]) ||
+          std::abs(msg.position[1]) > std::numeric_limits<fp32>::max())
+      {
+        received_cmd_gimbal_ = false;
+        return;
+      }
+
+      // pitch 在串口发送前再次限幅；yaw 保留多圈角度
+      const fp32 pitch = static_cast<fp32>(std::clamp(
+        msg.position[0], static_cast<fp64>(PITCH_MIN), static_cast<fp64>(PITCH_MAX)));
+      const fp32 yaw = static_cast<fp32>(msg.position[1]);
+
+      if (!std::isfinite(pitch) || !std::isfinite(yaw))
+      {
+        received_cmd_gimbal_ = false;
+        return;
+      }
+
+      cmd_gimbal_joint_field.rel_pitch = pitch;
+      cmd_gimbal_joint_field.rel_yaw = yaw;
 
       last_cmd_gimbal_time_ = std::chrono::steady_clock::now();
       received_cmd_gimbal_ = true;

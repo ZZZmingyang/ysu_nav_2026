@@ -1,12 +1,23 @@
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
+#include "behavior_manager/struct_typedef.h"
 
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <functional>
+#include <limits>
 #include <memory>
 
-typedef float fp32;
+// 沿用 joy 的 pitch 软限位；yaw 支持多圈，不限制位置角度
+static constexpr fp32 PITCH_MIN = -0.56f;
+static constexpr fp32 PITCH_MAX =  0.56f;
+
+// 参考 joy 的满量程映射设置软件速度上限，不代表机械极限
+static constexpr fp32 MAX_YAW_SPEED = 2.5f;
+static constexpr fp32 MAX_PITCH_SPEED = 1.0f;
+static constexpr fp32 YAW_SCAN_SPEED = 0.3f;
+static constexpr fp32 PITCH_SCAN_SPEED = 0.2f;
 
 using namespace std::chrono_literals;
 
@@ -65,12 +76,25 @@ class Gimbal_Scan_Node: public rclcpp::Node
         // 后续反馈不覆盖正在积分的目标角度
         if (!received_joint_state_)
         {
+            // 初始角度超出软限位时等待处理，避免直接跳到限位位置
+            // yaw 保留多圈值，但必须能够表示为当前使用的 fp32 类型
+            if (msg.position[0] < PITCH_MIN || msg.position[0] > PITCH_MAX ||
+                std::abs(msg.position[1]) > std::numeric_limits<fp32>::max())
+            {
+                RCLCPP_WARN_THROTTLE(
+                    this->get_logger(), *this->get_clock(), 1000,
+                    "初始云台角度超出允许范围，等待有效反馈!");
+                return;
+            }
+
             cmd_gimbal_joint_field.pitch = msg.position[0];
             cmd_gimbal_joint_field.yaw = msg.position[1];
 
             // 先用固定速度演示，后面再改成扫描任务参数
-            cmd_gimbal_joint_field.yaw_vel = 0.3f;
-            cmd_gimbal_joint_field.pitch_vel = 0.0f;
+            cmd_gimbal_joint_field.yaw_vel = YAW_SCAN_SPEED;
+            cmd_gimbal_joint_field.pitch_vel =
+                cmd_gimbal_joint_field.pitch >= PITCH_MAX ?
+                -PITCH_SCAN_SPEED : PITCH_SCAN_SPEED;
 
             last_update_ = this->now();
 
@@ -114,16 +138,76 @@ class Gimbal_Scan_Node: public rclcpp::Node
             }
         }
 
+        // 非有限目标或速度不参与积分，也不发送给下位机
+        if (!std::isfinite(cmd_gimbal_joint_field.yaw) ||
+            !std::isfinite(cmd_gimbal_joint_field.pitch) ||
+            !std::isfinite(cmd_gimbal_joint_field.yaw_vel) ||
+            !std::isfinite(cmd_gimbal_joint_field.pitch_vel))
+        {
+            stop_input();
+            scan_fault_ = true;
+            RCLCPP_ERROR_THROTTLE(
+                this->get_logger(), *this->get_clock(), 1000,
+                "云台目标或速度无效，停止发布扫描命令!");
+            return;
+        }
+
         // 以下角度积分逻辑与 joy 保持一致
         // 暂停时 dt 为零；时间回跳或异常跨越时跳过本次积分
-        if (dt > 0.0 && dt <= 0.1)
+        // 故障后保持停止，避免边界换向重新启动 pitch
+        if (!scan_fault_ && dt > 0.0 && dt <= 0.1)
         {
+            cmd_gimbal_joint_field.yaw_vel = std::clamp(
+                cmd_gimbal_joint_field.yaw_vel,
+                -MAX_YAW_SPEED,
+                MAX_YAW_SPEED
+            );
+
+            cmd_gimbal_joint_field.pitch_vel = std::clamp(
+                cmd_gimbal_joint_field.pitch_vel,
+                -MAX_PITCH_SPEED,
+                MAX_PITCH_SPEED
+            );
             cmd_gimbal_joint_field.yaw +=
                 cmd_gimbal_joint_field.yaw_vel * dt;
 
             cmd_gimbal_joint_field.pitch +=
                 cmd_gimbal_joint_field.pitch_vel * dt;
+
+            // pitch 到达软限位后往返，yaw 继续同向转圈
+            if (cmd_gimbal_joint_field.pitch_vel > 0.0f &&
+                cmd_gimbal_joint_field.pitch >= PITCH_MAX)
+            {
+                cmd_gimbal_joint_field.pitch = PITCH_MAX;
+                cmd_gimbal_joint_field.pitch_vel =
+                    -cmd_gimbal_joint_field.pitch_vel;
+            }
+            else if (cmd_gimbal_joint_field.pitch_vel < 0.0f &&
+                     cmd_gimbal_joint_field.pitch <= PITCH_MIN)
+            {
+                cmd_gimbal_joint_field.pitch = PITCH_MIN;
+                cmd_gimbal_joint_field.pitch_vel =
+                    -cmd_gimbal_joint_field.pitch_vel;
+            }
         }
+
+        if (!std::isfinite(cmd_gimbal_joint_field.yaw) ||
+            !std::isfinite(cmd_gimbal_joint_field.pitch))
+        {
+            stop_input();
+            scan_fault_ = true;
+            RCLCPP_ERROR_THROTTLE(
+                this->get_logger(), *this->get_clock(), 1000,
+                "云台积分目标无效，停止发布扫描命令!");
+            return;
+        }
+
+        // 和 joy 一样，在发布前执行最终 pitch 软限幅
+        cmd_gimbal_joint_field.pitch = std::clamp(
+            cmd_gimbal_joint_field.pitch,
+            PITCH_MIN,
+            PITCH_MAX
+        );
 
         auto joint_state_msg = sensor_msgs::msg::JointState();
 
