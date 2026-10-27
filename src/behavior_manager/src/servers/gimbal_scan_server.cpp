@@ -150,6 +150,7 @@ class Gimbal_Scan_Node: public rclcpp::Node
     {
         auto now = this->now();
 
+        // 积分时间间隔
         fp32 dt = (now - last_update_).seconds();
         last_update_ = now;
 
@@ -193,7 +194,7 @@ class Gimbal_Scan_Node: public rclcpp::Node
             return;
         }
 
-        // 以下角度积分逻辑与 joy 保持一致
+        // 角度积分
         // 暂停时 dt 为零；时间回跳或异常跨越时跳过本次积分
         // 故障后保持停止，避免边界换向重新启动 pitch
         if (!scan_fault_ && dt > 0.0 && dt <= 0.1)

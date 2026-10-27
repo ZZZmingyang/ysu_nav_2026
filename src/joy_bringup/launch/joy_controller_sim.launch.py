@@ -37,6 +37,7 @@ def generate_launch_description():
         ],
         remappings=[
             ("joy", "/joy"),
+            ("serial/gimbal_joint_state", "joint_states"),
         ],
     )
 
